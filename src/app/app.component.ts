@@ -22,5 +22,7 @@ export class AppComponent  {
 
   addClass() {
     $("#testdiv").html('99999')
+    $("#testdiv").addClass('myBorder')
+
   }
 }
