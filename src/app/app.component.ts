@@ -34,12 +34,16 @@ export class AppComponent {
     // } else {
     //   $("#testdiv").removeClass('myBorder').addClass('myBorder2')
     // }
-    $('#testdiv').toggleClass('collapsed');
+    //$('#testdiv').toggleClass('collapsed') ;
+    //$('#testdiv').toggleClass('collapsed');
+    $('#sidemenu').toggleClass('nodisplay');
+    $('#workarea').toggleClass('col-sm-12');
+    //workarea
 
     // document.querySelector('button').addEventListener('click', () => { document.querySelector('.collapsible').classList.toggle('collapsed');});
   }
 
-  HideMenu(id: string) {    
+  HideMenu(id: string) {
     $('#' + id).animate(
       {
         height: 'toggle',
@@ -49,6 +53,5 @@ export class AppComponent {
         // Animation complete.
       }
     );
-
   }
 }
