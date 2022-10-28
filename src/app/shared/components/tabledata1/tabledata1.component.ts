@@ -10,6 +10,7 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata1.component.css'],
 })
 export class Tabledata1Component implements OnInit {
+  
   employees!: Emp[];
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];

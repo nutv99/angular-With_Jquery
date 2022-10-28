@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpService } from '../../../_services/emp.service';
+
+import { Emp } from '../../../_models/emp';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-tabledata2',
@@ -10,7 +14,32 @@ export class Tabledata2Component implements OnInit {
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
 
+  employees!: Emp[];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    //this.loadEmployee();
+  }
+
+  // loadEmployee() {
+  //   this.empService
+  //     .getAll()
+  //     .pipe(first())
+  //     .subscribe((d) => {
+  //       this.employees = d;
+  //       this.totalrow = d.length;
+  //     });
+  // }
+
+  // delete(emp: Emp) {
+  //   this.empService
+  //     .delete(emp.empId)
+  //     .pipe(first())
+  //     .subscribe(() => {
+  //       this.loadEmployee();
+  //     });
+  // }
+
+  
 }
