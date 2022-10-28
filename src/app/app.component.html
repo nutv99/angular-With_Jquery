@@ -1,9 +1,29 @@
 <hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p> 
-"{{isJqueryWorking}}" 
+<p>Start editing to see some magic happen :)</p>
+"{{ isJqueryWorking }}"
 
-<div id='testdiv'></div> 
+<div id="testdiv" class="myBorder collapsible">
+  <div style="display:flex">
+    <h1 class="headermenu">Master Data</h1>
+    <button (click)="HideMenu('A1')">Close</button>
+  </div>
+  <ul id='A1' class="ulmenu">
+    <li>A1</li>
+    <li>A2</li>
+    <li>A3</li>
+    <li>A4</li>
+    <li>A5</li>
+  </ul>
+
+  <h1 class="headermenu">Master Data B</h1>
+  <button (click)="HideMenu('B1')">Close</button>
+  <ul id='B1' class="ulmenu">
+    <li>B1</li>
+    <li>B2</li>
+    <li>B3</li>
+    <li>B4</li>
+    <li>B5</li>
+  </ul>
+</div>
 
 <button (click)="addClass()">addClass</button>
