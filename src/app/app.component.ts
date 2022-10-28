@@ -1,5 +1,10 @@
 import { Component, VERSION, OnInit } from '@angular/core';
-import $ from 'jquery';
+import $ from 'jquery'; 
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faFilm } from '@fortawesome/free-solid-svg-icons'; 
+
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'; 
+//<i class="fa-solid fa-chevrons-right"></i>
 
 @Component({
   selector: 'my-app',
@@ -8,7 +13,9 @@ import $ from 'jquery';
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
-  isJqueryWorking: string;
+  isJqueryWorking: string; 
+  filmIcon = faFilm; 
+  faChevronCircleRight = faChevronCircleRight;
 
   ngOnInit() {
     $(document).ready(() => {

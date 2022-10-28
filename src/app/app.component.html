@@ -1,13 +1,20 @@
 <hello name="{{ name }}"></hello>
+<i class="fa-solid fa-chevrons-right"></i>
 <p>Start editing to see some magic happen :)</p>
 "{{ isJqueryWorking }}"
-
+<fa-icon [icon]="filmIcon"></fa-icon>
 <div id="testdiv" class="myBorder collapsible">
-  <div style="display:flex">
+  <div
+    (click)="HideMenu('A1')"
+    style="display:flex;align-items:center;background:lightgray;padding:5px"
+  >
     <h1 class="headermenu">Master Data</h1>
-    <button (click)="HideMenu('A1')">Close</button>
+    <fa-icon
+      [icon]="faChevronCircleRight"
+      style="font-size:22px;margin-left:auto;margin-right:5px;cursor:pointer"
+    ></fa-icon>
   </div>
-  <ul id='A1' class="ulmenu">
+  <ul id="A1" class="ulmenu">
     <li>A1</li>
     <li>A2</li>
     <li>A3</li>
@@ -17,7 +24,7 @@
 
   <h1 class="headermenu">Master Data B</h1>
   <button (click)="HideMenu('B1')">Close</button>
-  <ul id='B1' class="ulmenu">
+  <ul id="B1" class="ulmenu">
     <li>B1</li>
     <li>B2</li>
     <li>B3</li>
