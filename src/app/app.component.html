@@ -17,7 +17,10 @@
   </div>
 </div>
 
-<div class="container overflow-hidden">
+<div
+  class="scontainer overflow-hidden"
+  style="width:100%;border:1px solid gray"
+>
   <div class="row gy-5" style="padding-top:20px">
     <div id="sidemenu" class="col-sm-3" style="padding-left:30px;">
       <div id="testdiv" class="myBorder collapsible">
@@ -82,7 +85,7 @@
       </div>
     </div>
     <div id="workarea" class="col-sm-9">
-      <div id="testdiv" class="myBorder collapsible">
+      <div id="testdiv" class="myBorder collapsible" style="padding:5px">
         Work Area
         <router-outlet></router-outlet>
       </div>
