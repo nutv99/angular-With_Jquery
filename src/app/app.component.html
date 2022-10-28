@@ -2,7 +2,14 @@
 <i class="fa-solid fa-chevrons-right"></i>
 <p>Start editing to see some magic happen :)</p>
 "{{ isJqueryWorking }}"
-<fa-icon [icon]="filmIcon"></fa-icon>
+
+<br /><br /><br /><br />
+
+<div
+  style="border:1px solid gray;padding:3px;border-radius:6px;margin-bottom:15px;width:20px;text-align:center"
+>
+  <fa-icon [icon]="faHamburger" (click)="ToggleSideBar()"></fa-icon>
+</div>
 <div id="testdiv" class="myBorder collapsible">
   <div
     (click)="HideMenu('A1')"
@@ -32,5 +39,3 @@
     <li>B5</li>
   </ul>
 </div>
-
-<button (click)="addClass()">addClass</button>

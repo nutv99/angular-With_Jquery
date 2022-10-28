@@ -1,9 +1,11 @@
 import { Component, VERSION, OnInit } from '@angular/core';
-import $ from 'jquery'; 
+import $ from 'jquery';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faFilm } from '@fortawesome/free-solid-svg-icons'; 
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'; 
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 //<i class="fa-solid fa-chevrons-right"></i>
 
 @Component({
@@ -13,9 +15,10 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
-  isJqueryWorking: string; 
-  filmIcon = faFilm; 
+  isJqueryWorking: string;
+  filmIcon = faFilm;
   faChevronCircleRight = faChevronCircleRight;
+  faHamburger = faBars;
 
   ngOnInit() {
     $(document).ready(() => {
@@ -24,7 +27,7 @@ export class AppComponent {
     });
   }
 
-  addClass() {
+  ToggleSideBar() {
     //$('#testdiv').html('99999');
     // if (!$("#testdiv").hasClass('myBorder')) {
     //   $("#testdiv").addClass('myBorder')
@@ -36,9 +39,7 @@ export class AppComponent {
     // document.querySelector('button').addEventListener('click', () => { document.querySelector('.collapsible').classList.toggle('collapsed');});
   }
 
-  HideMenu(id: string) {
-    //$('#' + id).toggleClass('scale-up-ver-top');
-    // $('#' + id).fadeToggle(500);
+  HideMenu(id: string) {    
     $('#' + id).animate(
       {
         height: 'toggle',
@@ -48,6 +49,6 @@ export class AppComponent {
         // Animation complete.
       }
     );
-    // document.querySelector('.ulmenu').toggleClass('collapsedHeight');
+
   }
 }
