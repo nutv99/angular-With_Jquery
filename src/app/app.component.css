@@ -29,7 +29,7 @@ p {
 }
 .collapsedHeight {
   transition: transform 0.5s ease-out;
-  transform: height(0);
+  transform: scaleY(0);
 
   
 }

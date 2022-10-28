@@ -30,7 +30,17 @@ export class AppComponent {
   }
 
   HideMenu(id: string) {
-    $('#' + id).toggleClass('scale-up-ver-top');
+    //$('#' + id).toggleClass('scale-up-ver-top');
+    // $('#' + id).fadeToggle(500);
+    $('#' + id).animate(
+      {
+        height: 'toggle',
+      },
+      500,
+      function () {
+        // Animation complete.
+      }
+    );
     // document.querySelector('.ulmenu').toggleClass('collapsedHeight');
   }
 }
