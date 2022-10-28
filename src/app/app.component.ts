@@ -20,6 +20,69 @@ export class AppComponent {
   faChevronCircleRight = faChevronCircleRight;
   faHamburger = faBars;
 
+  menu = [
+    {
+      HeadCaption: 'ฐานข้อมูลหลัก',
+      Child: [
+        {
+          name: 'Deparment',
+          linkTo: '/',
+          caption: 'แผนกสินค้า',
+        },
+        {
+          name: 'category',
+          linkTo: '/',
+          caption: 'หมวดสินค้า',
+        },
+        {
+          name: 'groupItem',
+          linkTo: '/',
+          caption: 'กลุ่มสินค้า',
+        },
+      ],
+    },
+    {
+      HeadCaption: 'ฐานข้อมูลTrans',
+      Child: [
+        {
+          name: 'DeparmentTrans',
+          linkTo: '/',
+          caption: 'A-แผนกสินค้า',
+        },
+        {
+          name: 'categoryTrans',
+          linkTo: '/',
+          caption: 'A-หมวดสินค้า',
+        },
+        {
+          name: 'groupItemTrans',
+          linkTo: '/',
+          caption: 'A-กลุ่มสินค้า',
+        },
+      ],
+    },
+    {
+      HeadCaption: 'ระบบรายงาน',
+      Child: [
+        {
+          name: 'DeparmentTrans',
+          linkTo: '/',
+          caption: 'A-แผนกสินค้า',
+        },
+        {
+          name: 'categoryTrans',
+          linkTo: '/',
+          caption: 'A-หมวดสินค้า',
+        },
+        {
+          name: 'groupItemTrans',
+          linkTo: '/',
+          caption: 'A-กลุ่มสินค้า',
+        },
+      ],
+    },
+  ];
+
   ngOnInit() {
     $(document).ready(() => {
       this.isJqueryWorking = 'Jquery is working 9999!!!';
