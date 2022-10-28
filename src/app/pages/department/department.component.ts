@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tabledata1Component } from '../../shared/components/tabledata1/tabledata1.component';
+import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 
 @Component({
   selector: 'app-department',
