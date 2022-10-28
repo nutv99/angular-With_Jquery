@@ -15,8 +15,6 @@ export class Tabledata1Component implements OnInit {
   totalrow: number = 0;
   headerTable = [ 'ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร',''];
 
-   
-
   constructor(private empService: EmpService) {}
 
   ngOnInit(): void {
