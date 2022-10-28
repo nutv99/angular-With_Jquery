@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'; 
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,FontAwesomeModule,
+  imports:      [ BrowserModule, FormsModule,FontAwesomeModule,HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only set true
