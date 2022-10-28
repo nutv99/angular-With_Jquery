@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
 
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
+
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+
+
 import { Emp } from '../../../_models/emp';
 import { first } from 'rxjs';
 
@@ -16,6 +24,10 @@ export class Tabledata2Component implements OnInit {
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
 
+  faEdit = faEdit;
+  faDeleteLeft= faDeleteLeft;
+  faChevronCircleRight = faChevronCircleRight;
+
   employees!: Emp[];
 
   constructor(private http: HttpClient) {}
@@ -25,8 +37,8 @@ export class Tabledata2Component implements OnInit {
       .get('https://lovetoshopmall.com/dataservice/department.php')
       .subscribe((data) => {
         // อ่านค่า result จาก JSON response ที่ส่งออกมา
-        alert('s');
-        this.results = data['results'];
+
+        this.results = data;
       });
   }
 

@@ -4,7 +4,7 @@
     <div class="card-header">
       <div class="row flex-between-center">
         <div class="col-md-4 d-flex align-items-center pe-0">
-          <h5 class="mb-0 text-nowrap py-2 py-xl-0">Employee List</h5>
+          <h5 class="mb-0 text-nowrap py-2 py-xl-0">resultsloyee List</h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
           <h6>Total : {{ totalrow }}</h6>
@@ -19,36 +19,38 @@
               <th *ngFor="let txt of headerTable">{{ txt }}</th>
             </tr>
           </thead>
-          <!-- <tbody>
-          <tr *ngFor="let emp of employees">
-            <td>{{ emp.firstName }}</td>
-            <td>{{ emp.lastName }}</td>
-            <td>{{ emp.email }}</td>
-            <td>{{ emp.phoneNumber }}</td>
-            <td class="white-space-nowrap">
-              <a
-                class="btn btn-outline-success"
-                placement="bottom"
-                ngbTooltip="Edit"
-              >
-                <i class="bi bi-pencil"></i>
-              </a>
-              <button
-                (click)="delete(emp)"
-                class="btn btn-outline-danger"
-                placement="bottom"
-                ngbTooltip="Delete"
-              >
-                <i class="bi bi-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr *ngIf="totalrow === 0">
-            <td colspan="5">
-              <div class="alert alert-danger">Employee not found</div>
-            </td>
-          </tr>
-        </tbody> -->
+          <tbody>
+            <tr *ngFor="let result of results">
+              <td>{{ result[0] }}</td>
+              <td>{{ result.departmentDesc }}</td>
+              <td>{{ result.email }}</td>
+              <td>{{ result.phoneNumber }}</td>
+              <td class="white-space-nowrap">
+                <a
+                  class="btn btn-outline-success"
+                  placement="bottom"
+                  ngbTooltip="Edit"
+                  style="margin-right:10px"
+                >
+                  <!-- <i class="bi bi-pencil"></i> -->
+                  <fa-icon [icon]="faEdit"></fa-icon>
+                </a>
+                <button
+                  class="btn btn-outline-danger"
+                  placement="bottom"
+                  ngbTooltip="Delete"
+                >
+                  <!-- <i class="bi bi-trash"></i> -->
+                  <fa-icon [icon]="faDeleteLeft"></fa-icon>
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="totalrow === 0">
+              <td colspan="5">
+                <div class="alert alert-danger">resultsloyee not found</div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -57,7 +59,7 @@
 
 <footer class="border-top text-muted fixed-bottom p-2">
   <div class="container text-center">
-    <a routerLink="/employee/add" class="btn btn-success">
+    <a routerLink="/resultsloyee/add" class="btn btn-success">
       <i class="bi bi-plus"></i>
     </a>
   </div>
