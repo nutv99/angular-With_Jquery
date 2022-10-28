@@ -26,12 +26,12 @@ export class AppComponent {
       Child: [
         {
           name: 'Deparment',
-          linkTo: '/',
+          linkTo: '/department',
           caption: 'แผนกสินค้า',
         },
         {
           name: 'category',
-          linkTo: '/',
+          linkTo: '/category',
           caption: 'หมวดสินค้า',
         },
         {
@@ -46,12 +46,12 @@ export class AppComponent {
       Child: [
         {
           name: 'DeparmentTrans',
-          linkTo: '/',
+          linkTo: '/department',
           caption: 'A-แผนกสินค้า',
         },
         {
           name: 'categoryTrans',
-          linkTo: '/',
+          linkTo: '/category',
           caption: 'A-หมวดสินค้า',
         },
         {

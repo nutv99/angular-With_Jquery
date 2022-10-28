@@ -30,7 +30,7 @@
           </div>
           <div style="text-align:center;margin-bottom:20px">John Doe</div>
         </div>
-        <!-- Start menu -->
+        <!-- Start menu 1-->
         <div
           (click)="HideMenu('A1')"
           style="display:flex;align-items:center;background:lightgray;padding:5px"
@@ -43,7 +43,7 @@
         </div>
         <ul id="A1" class="ulmenu">
           <li *ngFor="let hero of menu[0].Child">
-            {{ hero.caption }}
+            <a routerLink="/department"> {{ hero.caption }} </a>
           </li>
         </ul>
         <!-- Start menu 2 -->
@@ -82,7 +82,10 @@
       </div>
     </div>
     <div id="workarea" class="col-sm-9">
-      <div id="testdiv" class="myBorder collapsible">Wirk Area</div>
+      <div id="testdiv" class="myBorder collapsible">
+        Work Area
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
