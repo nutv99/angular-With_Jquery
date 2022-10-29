@@ -41,12 +41,12 @@ export class Tabledata2Component implements OnInit {
     this.apiName = environment.apiHost + this.tableAPI;
     console.log(this.apiName);
     this.http
-
       .get('https://lovetoshopmall.com/dataservice/department.php')
       .subscribe((data) => {
         // อ่านค่า result จาก JSON response ที่ส่งออกมา
 
         this.results = data;
+        console.table(data)
       });
   }
 
