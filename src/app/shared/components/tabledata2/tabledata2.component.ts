@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input, Output, EventEmitter } from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,6 +10,7 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
 
+import { environment } from '../../../environment';
 
 import { Emp } from '../../../_models/emp';
 import { first } from 'rxjs';
@@ -19,13 +21,16 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata2.component.css'],
 })
 export class Tabledata2Component implements OnInit {
+  @Input() tableAPI: string;
+
+  apiName: string = '';
   // employees!: Emp[];
   results: any;
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
 
   faEdit = faEdit;
-  faDeleteLeft= faDeleteLeft;
+  faDeleteLeft = faDeleteLeft;
   faChevronCircleRight = faChevronCircleRight;
 
   employees!: Emp[];
@@ -33,7 +38,10 @@ export class Tabledata2Component implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.apiName = environment.apiHost + this.tableAPI;
+    console.log(this.apiName);
     this.http
+
       .get('https://lovetoshopmall.com/dataservice/department.php')
       .subscribe((data) => {
         // อ่านค่า result จาก JSON response ที่ส่งออกมา
