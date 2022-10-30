@@ -16,8 +16,7 @@ const appRoutes: Routes = [
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'category', component: CategoryComponent },
-
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -28,7 +27,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only set true
+      { enableTracing: true } // <-- debugging purposes only set true
     ),
   ],
   declarations: [
