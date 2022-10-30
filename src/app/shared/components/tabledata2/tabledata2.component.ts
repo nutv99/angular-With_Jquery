@@ -39,7 +39,7 @@ export class Tabledata2Component implements OnInit {
 
   ngOnInit(): void {
     this.apiName = environment.apiHost + apiPath.departmentByPageNo;
-    console.log(this.apiName);
+    console.log('API URL ', this.apiName);
     this.http
       .get<any>(environment.apiHost + apiPath.departmentByPageNo)
       .subscribe((data) => {
