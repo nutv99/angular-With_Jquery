@@ -1,6 +1,6 @@
 <p>tabledata2 works!</p>
 
-<section>
+<section style="margin-bottom:75px">
   <div class="card shadow my-2">
     <div class="card-header">
       <div class="row flex-between-center">
@@ -60,56 +60,64 @@
             </tr>
           </tbody>
         </table>
+        <div style="display:flex">
+          <nav
+            aria-label="Page navigation example"
+            style="margin-top:5px;margin-left:auto;margin-right:10px"
+          >
+            <ul class="pagination">
+              <li class="page-item" *ngFor="let pageno of Pagination">
+                <a
+                  class="page-link"
+                  routerLink="/{{ tableAPI }}/{{ pageno }}"
+                  routerLinkActive="active"
+                  (click)="fetchData(pageno)"
+                  >{{ pageno }}</a
+                >
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">Previous</a>
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  routerLink="/department/1"
+                  routerLinkActive="active"
+                  (click)="fetchData(1)"
+                  >1</a
+                >
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  routerLink="/department/2"
+                  routerLinkActive="active"
+                  (click)="fetchData(2)"
+                  >2</a
+                >
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  [routerLink]="['/department', 3]"
+                  routerLinkActive="active"
+                  (click)="fetchData(3)"
+                  >3</a
+                >
+              </li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
-  <nav aria-label="Page navigation example" style="margin-top:50px">
-    <ul class="pagination">
-      <li class="page-item" *ngFor="let pageno of Pagination">
-        <a
-          class="page-link"
-          routerLink="/{{ tableAPI }}/{{ pageno }}"
-          routerLinkActive="active"
-          (click)="fetchData(pageno)"
-          >{{ pageno }}</a
-        >
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item">
-        <a
-          class="page-link"
-          routerLink="/department/1"
-          routerLinkActive="active"
-          (click)="fetchData(1)"
-          >1</a
-        >
-      </li>
-      <li class="page-item">
-        <a
-          class="page-link"
-          routerLink="/department/2"
-          routerLinkActive="active"
-          (click)="fetchData(2)"
-          >2</a
-        >
-      </li>
-      <li class="page-item">
-        <a
-          class="page-link"
-          [routerLink]="['/department', 3]"
-          routerLinkActive="active"
-          (click)="fetchData(3)"
-          >3</a
-        >
-      </li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </nav>
 </section>
 
-<footer class="border-top text-muted fixed-bottom p-2">
+<footer
+  class="border-top text-muted fixed-bottom p-2"
+  style="margin-top:50px;background:red"
+>
   <div class="container text-center">
     <a routerLink="/resultsloyee/add" class="btn btn-success">
       <i class="bi bi-plus"></i>
