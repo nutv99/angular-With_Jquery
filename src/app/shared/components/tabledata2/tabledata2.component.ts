@@ -32,7 +32,7 @@ export class Tabledata2Component implements OnInit {
   results: any;
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
-
+  Pagination = [2,3,4] ;
   faEdit = faEdit;
   faDeleteLeft = faDeleteLeft;
   faChevronCircleRight = faChevronCircleRight;
