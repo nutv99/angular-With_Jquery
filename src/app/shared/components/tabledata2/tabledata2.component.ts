@@ -42,14 +42,19 @@ export class Tabledata2Component implements OnInit {
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
     // console.log('API URL ', this.apiName);
+    
+  }
+
+  fetchData() {
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/1';
-    this.http.get<any>(this.myurl).subscribe((data) => {
-      // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table(data.data);
-      this. AllRec  = data.totalRec ;
-      this.results = data.data;
-    });
+    'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/1';
+  this.http.get<any>(this.myurl).subscribe((data) => {
+    // อ่านค่า result จาก JSON response ที่ส่งออกมา
+    console.table(data.data);
+    this. AllRec  = data.totalRec ;
+    this.results = data.data;
+  });
+
   }
 
   // loadEmployee() {
