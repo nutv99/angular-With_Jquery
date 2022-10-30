@@ -44,9 +44,8 @@ export class Tabledata2Component implements OnInit {
       .get<any>(environment.apiHost + apiPath.departmentByPageNo)
       .subscribe((data) => {
         // อ่านค่า result จาก JSON response ที่ส่งออกมา
-        console.table(data.resultData);
-        this.results = data.resultData;
-        console.table(data);
+        console.table(data.data);
+        this.results = data.data;
       });
   }
 
