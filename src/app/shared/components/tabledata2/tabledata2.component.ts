@@ -22,7 +22,8 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata2.component.css'],
 })
 export class Tabledata2Component implements OnInit {
-  @Input() tableAPI: string;
+  @Input() tableAPI: string; 
+  pageno : string = '1' ;
 
   apiName: string = '';
   myurl: string = '';
@@ -38,17 +39,18 @@ export class Tabledata2Component implements OnInit {
 
   employees!: Emp[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private _Activatedroute:ActivatedRoute) {}
 
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
     // console.log('API URL ', this.apiName);
-    this.fetchData() ;
+    this.pageno=this._Activatedroute.snapshot.paramMap.get("id");
+    this.fetchData(this.pageno) ;
   }
 
-  fetchData() {
+  fetchData(pageno) {
     this.myurl =
-    'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/1';
+    'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/'+ pageno;
   this.http.get<any>(this.myurl).subscribe((data) => {
     // อ่านค่า result จาก JSON response ที่ส่งออกมา
     console.table(data.data);
