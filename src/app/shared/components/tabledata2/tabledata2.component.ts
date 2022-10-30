@@ -10,7 +10,7 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { environment, apiPath } from '../../../environment';
+import { environment } from '../../../environment';
 
 import { Emp } from '../../../_models/emp';
 import { first } from 'rxjs';
@@ -24,6 +24,8 @@ export class Tabledata2Component implements OnInit {
   @Input() tableAPI: string;
 
   apiName: string = '';
+  myurl: string = '';
+  AllRec : number = 0 ;
   // employees!: Emp[];
   results: any;
   totalrow: number = 0;
@@ -38,15 +40,16 @@ export class Tabledata2Component implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.apiName = environment.apiHost + apiPath.departmentByPageNo;
-    console.log('API URL ', this.apiName);
-    this.http
-      .get<any>(environment.apiHost + apiPath.departmentByPageNo)
-      .subscribe((data) => {
-        // อ่านค่า result จาก JSON response ที่ส่งออกมา
-        console.table(data.data);
-        this.results = data.data;
-      });
+    //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
+    // console.log('API URL ', this.apiName);
+    this.myurl =
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/1';
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table(data.data);
+      this. AllRec  = data.totalRec ;
+      this.results = data.data;
+    });
   }
 
   // loadEmployee() {
