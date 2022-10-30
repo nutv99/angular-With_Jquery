@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -42,7 +43,7 @@ export class Tabledata2Component implements OnInit {
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
     // console.log('API URL ', this.apiName);
-    
+    this.fetchData() ;
   }
 
   fetchData() {
