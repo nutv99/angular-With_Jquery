@@ -3,3 +3,8 @@ export const environment = {
   apiHost:'https://lovetoshopmall.com/swagger/marlinshopWork2/',
   apiUrl: 'https://lovetoshopmall.com/dataservice/getmember.php'
 };
+
+export const apiPath = {
+  production: false,  
+  departmentByPageNo : 'th/department/ByPageNo/1'
+};

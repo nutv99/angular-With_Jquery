@@ -1,4 +1,5 @@
 <p>tabledata2 works!</p>
+
 <section>
   <div class="card shadow my-2">
     <div class="card-header">
@@ -7,7 +8,7 @@
           <h5 class="mb-0 text-nowrap py-2 py-xl-0">resultsloyee List</h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
-          <h6>Total : {{ totalrow }}</h6>
+          <h6>Total : {{ results.length }}</h6>
         </div>
       </div>
     </div>
@@ -21,10 +22,17 @@
           </thead>
           <tbody>
             <tr *ngFor="let result of results">
-              <td>{{ result[0] }}</td>
-              <td>{{ result.departmentDesc }}</td>
-              <td>{{ result.email }}</td>
-              <td>{{ result.phoneNumber }}</td>
+              <td>{{ result[2] }}</td>
+              <td>{{ result[4] }}</td>
+              <td>{{ result[2] }}</td>
+              <td>
+                <img
+                  src="{{ result[6] }}"
+                  width="50"
+                  height="50"
+                  style="margin:4px"
+                />
+              </td>
               <td class="white-space-nowrap">
                 <a
                   class="btn btn-outline-success"
