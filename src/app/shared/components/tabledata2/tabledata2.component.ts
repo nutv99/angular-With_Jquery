@@ -63,7 +63,7 @@ export class Tabledata2Component implements OnInit {
   fetchData(pageno) {
     this.results = '';
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/' +
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/'+  this.tableAPI +'/ByPageNo/' +
       pageno;
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
