@@ -21,16 +21,16 @@ export class DepartmentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.formModal = new window.bootstrap.Modal(
-      document.getElementById('myModal')
-    );
+    // this.formModal = new window.bootstrap.Modal(
+    //   document.getElementById('myModal')
+    // );
   }
 
-  openFormModal() {
-    this.formModal.show();
-  }
-  saveSomeThing() {
-    // confirm or save something
-    this.formModal.hide();
-  }
+  // openFormModal() {
+  //   this.formModal.show();
+  // }
+  // saveSomeThing() {
+  //   // confirm or save something
+  //   this.formModal.hide();
+  // }
 }
