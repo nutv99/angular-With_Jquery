@@ -12,6 +12,8 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.component';
 
+import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
+
 const appRoutes: Routes = [
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     HelloComponent,
     DepartmentComponent,
     Tabledata2Component,
+    SearchselectComponent
   ],
   bootstrap: [AppComponent],
 })
