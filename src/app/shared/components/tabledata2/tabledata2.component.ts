@@ -22,47 +22,55 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata2.component.css'],
 })
 export class Tabledata2Component implements OnInit {
-  tableAPI: string; 
-  @Input() varModelTable ;
+  tableAPI: string;
+  @Input() varModelTable;
 
-  pageno : string = '1' ;
+  pageno: string = '1';
 
   apiName: string = '';
   myurl: string = '';
-  AllRec : number = 0 ;
+  AllRec: number = 0;
   // employees!: Emp[];
   results: any;
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
-  
-  Pagination = [2,3,4] ;
+
+  Pagination = [2, 3, 4];
   faEdit = faEdit;
   faDeleteLeft = faDeleteLeft;
   faChevronCircleRight = faChevronCircleRight;
 
   employees!: Emp[];
 
-  constructor(private http: HttpClient,private _Activatedroute:ActivatedRoute) {}
+  constructor(
+    private http: HttpClient,
+    private _Activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
     // console.log('API URL ', this.apiName);
-    this.headerTable = this.varModelTable.headerTable ; 
-    this.tableAPI = this.varModelTable.apiTable ;
-    this.pageno=this._Activatedroute.snapshot.paramMap.get("id");
-    this.fetchData(this.pageno) ;
+    this.headerTable = this.varModelTable.headerTable;
+    this.tableAPI = this.varModelTable.apiTable;
+    if (this._Activatedroute.snapshot.paramMap.get('id')) {
+      this.pageno = this._Activatedroute.snapshot.paramMap.get('id');
+    } else {
+      this.pageno = '1';
+    }
+    this.fetchData(this.pageno);
   }
 
   fetchData(pageno) {
+    this.results = '';
     this.myurl =
-    'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/'+ pageno;
-  this.http.get<any>(this.myurl).subscribe((data) => {
-    // อ่านค่า result จาก JSON response ที่ส่งออกมา
-    console.table(data.data);
-    this. AllRec  = data.totalRec ;
-    this.results = data.data;
-  });
-
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/ByPageNo/' +
+      pageno;
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table(data.data);
+      this.AllRec = data.totalRec;
+      this.results = data.data;
+    });
   }
 
   // loadEmployee() {
