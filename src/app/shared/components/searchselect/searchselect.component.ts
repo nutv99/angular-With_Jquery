@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-searchselect',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchselect.component.css']
 })
 export class SearchselectComponent implements OnInit {
-
+  @ViewChild("myNameElem") myNameElem: ElementRef; 
   constructor() { }
 
   ngOnInit() {
