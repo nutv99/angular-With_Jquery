@@ -1,8 +1,10 @@
 <p>searchselect works!</p>
-<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-<option selected>Open this select menu</option>
-<option value="1">One</option>
-<option value="2">Two</option>
-<option value="3">Three</option>
+<select
+  class="form-select form-select-lg mb-3"
+  aria-label=".form-select-lg example"
+>
+  <option selected>เลือก แผนกสินค้า</option>
+  <option *ngFor="let result of results" value="{{ result[2] }}">
+    {{ result[4] }}
+  </option>
 </select>
-

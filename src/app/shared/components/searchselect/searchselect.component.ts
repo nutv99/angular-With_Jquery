@@ -1,15 +1,52 @@
-import { Component, OnInit,ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-searchselect',
   templateUrl: './searchselect.component.html',
-  styleUrls: ['./searchselect.component.css']
+  styleUrls: ['./searchselect.component.css'],
 })
 export class SearchselectComponent implements OnInit {
-  @ViewChild("myNameElem") myNameElem: ElementRef; 
-  constructor() { }
+  @ViewChild('myNameElem') myNameElem: ElementRef;
+  //
+
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Access-Control-Allow-Origin': '*',
+  //   }),
+  //   responseType: 'text' as 'json',
+  // };
+  results: any;
+  myurl: string = '';
+  tableAPI: string = 'Department';
+  pageno = 1;
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.fetchData2();
   }
 
+  fetchData2() {
+    this.results = '';
+    this.myurl =
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
+      this.tableAPI +
+      '/ByPageNo/' +
+      this.pageno;
+    console.log('aa', this.myurl);
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table('Data For Select ', data.data);
+      //this.AllRec = data.totalRec;
+      this.results = data.data;
+    });
+  }
 }
