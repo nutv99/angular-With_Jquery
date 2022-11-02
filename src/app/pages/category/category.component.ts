@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
+declare var window: any;
+export interface modelTable {
+  apiTable: string;
+  headerTable: string[];
+}
+
 @Component(
   {
   selector: 'app-category',
@@ -10,9 +16,17 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  formModal: any;
+  varmodelTable: modelTable = {
+    apiTable: 'department',
+    headerTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
+  };
+  constructor() {}
 
   ngOnInit() {
+    // this.formModal = new window.bootstrap.Modal(
+    //   document.getElementById('myModal')
+    // );
   }
 
 }
