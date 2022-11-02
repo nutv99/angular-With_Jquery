@@ -10,6 +10,8 @@ import { Tabledata1Component } from './shared/components/tabledata1/tabledata1.c
 import { HelloComponent } from './hello.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { GroupItemComponent } from './pages/groupitem/group-item.component';
+
 import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.component';
 
 import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
@@ -18,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'group', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     HelloComponent,
     DepartmentComponent,
     Tabledata2Component,
-    SearchselectComponent
+    SearchselectComponent,
+    GroupItemComponent,
   ],
   bootstrap: [AppComponent],
 })

@@ -36,7 +36,7 @@ export class AppComponent {
         },
         {
           name: 'groupItem',
-          linkTo: '/',
+          linkTo: '/group',
           caption: 'กลุ่มสินค้า',
         },
       ],

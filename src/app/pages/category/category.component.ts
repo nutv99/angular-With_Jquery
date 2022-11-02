@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
 declare var window: any;
