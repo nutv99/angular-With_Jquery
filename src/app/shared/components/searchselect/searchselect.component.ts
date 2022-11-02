@@ -51,5 +51,25 @@ export class SearchselectComponent implements OnInit {
       //this.AllRec = data.totalRec;
       this.results = data;
     });
+  } 
+
+  fetchDat3() {
+    this.results = '';
+    this.myurl =
+      'https://lovetoshopmall.com/swagger/marlinshopWork2' +
+      this.apiPath ;
+    console.log('aa', this.myurl);
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table('Data For Select List', data);
+      //this.AllRec = data.totalRec;
+      this.results = data;
+    });
+  } 
+
+
+  onChange(e:any) {
+    alert(e.target.value)
+
   }
 }
