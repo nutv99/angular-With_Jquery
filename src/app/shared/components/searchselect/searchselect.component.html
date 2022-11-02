@@ -1,10 +1,12 @@
 <p>searchselect works!</p>
 <select
-  class="form-select form-select-lg mb-3"
+  id="myselect"
+  class="form-select form-select-lg mb-3 select"
   aria-label=".form-select-lg example"
+  style="font-size:16px"
 >
   <option selected>เลือก แผนกสินค้า</option>
-  <option *ngFor="let result of results" value="{{ result[2] }}">
-    {{ result[4] }}
+  <option *ngFor="let result of results" value="{{ result[0] }}">
+    {{ result[1] }}
   </option>
 </select>

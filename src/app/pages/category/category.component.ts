@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
 @Component(
   {

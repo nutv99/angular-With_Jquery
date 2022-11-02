@@ -5,6 +5,8 @@ import {
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
+
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -32,21 +34,24 @@ export class SearchselectComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData2();
+
+    
   }
 
+  //th/department/All/1
   fetchData2() {
     this.results = '';
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
       this.tableAPI +
-      '/ByPageNo/' +
+      '/All/' +
       this.pageno;
     console.log('aa', this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table('Data For Select ', data.data);
+      console.table('Data For Select List', data);
       //this.AllRec = data.totalRec;
-      this.results = data.data;
+      this.results = data;
     });
   }
 }

@@ -86,7 +86,10 @@ export class AppComponent {
   ngOnInit() {
     $(document).ready(() => {
       this.isJqueryWorking = 'Jquery is working 9999!!!';
-      // $('#testdiv').html('sssss');
+
+      // $('select').selectize({
+      //   sortField: 'text',
+      // });
     });
   }
 
