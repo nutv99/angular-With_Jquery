@@ -4,6 +4,7 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
+  Input
 } from '@angular/core';
 
 
@@ -16,6 +17,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;
+  @Input() apiPath : string ;
   //
 
   // httpOptions = {
@@ -33,19 +35,15 @@ export class SearchselectComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.fetchData2();
-
-    
+    this.fetchData2();    
   }
 
   //th/department/All/1
   fetchData2() {
     this.results = '';
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
-      this.tableAPI +
-      '/All/' +
-      this.pageno;
+      'https://lovetoshopmall.com/swagger/marlinshopWork2' +
+      this.apiPath ;
     console.log('aa', this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
