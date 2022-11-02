@@ -15,7 +15,8 @@ body,
   display: flex;
   flex-direction: row;
   /* background-color: darkblue;  */
-  background-color: #1565c0;
+  /* background-color: #1565c0; */
+  background-color: #01579b ;
   height: 100px;
   width: 100%;
   padding: 10px;
