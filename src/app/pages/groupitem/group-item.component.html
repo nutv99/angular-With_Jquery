@@ -4,7 +4,9 @@
 <div class="container">
   <div class="row">
     <div class="mb-3 col-md-6">
-      <label for="exampleFormControlInput1" class="form-label">id</label>
+      <label for="exampleFormControlInput1" class="form-label"
+        >แผนกสินค้า</label
+      >
       <div class="dropdown">
         <app-searchselect
           [apiPath]="'/th/department/All/1'"
@@ -18,10 +20,10 @@
         >รหัสหมวดสินค้า</label
       >
       <div class="dropdown">
-        <app-searchselect
+        <!-- <app-searchselect
           [apiPath]="'/th/groupitem/getAll/1'"
           (myListChange)="testNumBerChange($event)"
-        ></app-searchselect>
+        ></app-searchselect> -->
       </div>
     </div>
   </div>

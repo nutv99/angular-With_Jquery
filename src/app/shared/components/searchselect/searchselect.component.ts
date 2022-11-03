@@ -22,6 +22,8 @@ import { environment } from '../../../environment';
 @Input Model 
   apiPath : string ,
   apiPathChild : string ,
+  apiPathChildren : string ,
+
 
 */
 export class SearchselectComponent implements OnInit {
@@ -44,6 +46,7 @@ export class SearchselectComponent implements OnInit {
   baseUrl: string = '';
   results: any = '';
   results2: any = '';
+  results3: any = '';
   myurl: string = '';
   tableAPI: string = 'Department';
   pageno = 1;
@@ -71,7 +74,7 @@ export class SearchselectComponent implements OnInit {
   }
 
   fetchDat3(id: string) {
-    this.results = '';
+    this.results2 = '';
     let apiPath2 = '/th/department/WithChild/' + id;
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2' + apiPath2;
@@ -86,8 +89,32 @@ export class SearchselectComponent implements OnInit {
     });
   }
 
-  onChange(e: any) {
-    //alert(e.target.value);
-    this.fetchDat3(e.target.value);
+  fetchDat4(id: string) {
+    this.results3 = '';
+    let apiPath2 = '/th/category/WithChild/' + id;
+    this.myurl =
+      'https://lovetoshopmall.com/swagger/marlinshopWork2' + apiPath2;
+
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table('Data For Child Select List', data);
+      //this.AllRec = data.totalRec;
+      //this.dataInit = data;
+      this.results3 = data;
+      // this.myListChange.emit(data);
+    });
+  }
+
+  onChange999(e: any) {
+    console.clear();
+    let id = e.target.value;
+    this.fetchDat3(id);
+  }
+
+  onChange9999(e: any) {
+    console.clear();
+    let id = e.target.value;
+
+    this.fetchDat4(id);
   }
 }
