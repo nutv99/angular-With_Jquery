@@ -5,6 +5,8 @@ import {
   ViewChild,
   AfterViewInit,
   Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -22,12 +24,11 @@ import { environment } from '../../../environment';
   apiPathChild : string ,
 
 */
-
-
-
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;
   @Input() apiPath: string;
+  @Output() myOutput: EventEmitter<any> = new EventEmitter();
+  outPutMessage: any = {};
   //
 
   // httpOptions = {
@@ -38,7 +39,7 @@ export class SearchselectComponent implements OnInit {
   //   responseType: 'text' as 'json',
   // };
 
-  baseUrl :string = '' ;
+  baseUrl: string = '';
   results: any;
   myurl: string = '';
   tableAPI: string = 'Department';
@@ -47,25 +48,12 @@ export class SearchselectComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.baseUrl = environment.apiHost + this.apiPath;   
+    this.baseUrl = environment.apiHost + this.apiPath;
     this.fetchData2();
   }
 
   //th/department/All/1
   fetchData2() {
-    this.results = '';
-    this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2' + this.apiPath;
-    console.log('aa', this.myurl);
-    this.http.get<any>(this.myurl).subscribe((data) => {
-      // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table('Data For Select List', data) ;
-      //this.AllRec = data.totalRec;
-      this.results = data;
-    });
-  }
-
-  fetchDat3() {
     this.results = '';
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2' + this.apiPath;
@@ -78,7 +66,23 @@ export class SearchselectComponent implements OnInit {
     });
   }
 
+  fetchDat3(id: string) {
+    this.results = '';
+    let apiPath2 = '/th/department/WithChild/' + id;
+    this.myurl =
+      'https://lovetoshopmall.com/swagger/marlinshopWork2' + apiPath2;
+
+    this.http.get<any>(this.myurl).subscribe((data) => {
+      // อ่านค่า result จาก JSON response ที่ส่งออกมา
+      console.table('Data For Child Select List', data);
+      //this.AllRec = data.totalRec;
+      this.myOutput = data;
+      this.myOutput.emit;
+    });
+  }
+
   onChange(e: any) {
-    alert(e.target.value);
+    //alert(e.target.value);
+    this.fetchDat3(e.target.value);
   }
 }
