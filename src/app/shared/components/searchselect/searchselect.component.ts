@@ -22,6 +22,9 @@ import { environment } from '../../../environment';
   apiPathChild : string ,
 
 */
+
+const baseUrl = environment.apiUrl + "/employee"; 
+
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;
   @Input() apiPath: string;
@@ -53,7 +56,7 @@ export class SearchselectComponent implements OnInit {
     console.log('aa', this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table('Data For Select List', data);
+      console.table('Data For Select List', data) ;
       //this.AllRec = data.totalRec;
       this.results = data;
     });
