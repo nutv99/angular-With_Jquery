@@ -9,13 +9,16 @@ import {
 
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-searchselect',
   templateUrl: './searchselect.component.html',
   styleUrls: ['./searchselect.component.css'],
 })
+
 export class SearchselectComponent implements OnInit {
+
   @ViewChild('myNameElem') myNameElem: ElementRef;
   @Input() apiPath : string ;
   //
@@ -30,7 +33,7 @@ export class SearchselectComponent implements OnInit {
   results: any;
   myurl: string = '';
   tableAPI: string = 'Department';
-  pageno = 1;
+  pageno = 1 ;
 
   constructor(private http: HttpClient) {}
 
