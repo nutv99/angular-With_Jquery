@@ -23,7 +23,7 @@ import { environment } from '../../../environment';
 
 */
 
-const baseUrl = environment.apiUrl + "/employee"; 
+
 
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;
@@ -37,6 +37,8 @@ export class SearchselectComponent implements OnInit {
   //   }),
   //   responseType: 'text' as 'json',
   // };
+
+  baseUrl :string = '' ;
   results: any;
   myurl: string = '';
   tableAPI: string = 'Department';
@@ -45,6 +47,7 @@ export class SearchselectComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.baseUrl = environment.apiHost + this.apiPath;   
     this.fetchData2();
   }
 
