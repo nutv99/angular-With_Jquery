@@ -27,7 +27,9 @@ import { environment } from '../../../environment';
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;
   @Input() apiPath: string;
-  @Output() myOutput: EventEmitter<any> = new EventEmitter();
+  @Input() dataInit: any;
+
+  @Output() myListChange: EventEmitter<string> = new EventEmitter();
   outPutMessage: any = {};
   //
 
@@ -40,7 +42,8 @@ export class SearchselectComponent implements OnInit {
   // };
 
   baseUrl: string = '';
-  results: any;
+  results: any = '';
+  results2: any = '';
   myurl: string = '';
   tableAPI: string = 'Department';
   pageno = 1;
@@ -49,6 +52,7 @@ export class SearchselectComponent implements OnInit {
 
   ngOnInit() {
     this.baseUrl = environment.apiHost + this.apiPath;
+    this.results = this.dataInit;
     this.fetchData2();
   }
 
@@ -76,8 +80,9 @@ export class SearchselectComponent implements OnInit {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table('Data For Child Select List', data);
       //this.AllRec = data.totalRec;
-      this.myOutput = data;
-      this.myOutput.emit;
+      //this.dataInit = data;
+      this.results2 = data;
+      // this.myListChange.emit(data);
     });
   }
 
