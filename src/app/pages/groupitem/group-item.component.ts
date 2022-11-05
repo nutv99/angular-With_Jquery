@@ -8,7 +8,6 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 })
 export class GroupItemComponent implements OnInit {
   myOutput: any = {};
-
   dataChild: any ;
 
   constructor() {}
