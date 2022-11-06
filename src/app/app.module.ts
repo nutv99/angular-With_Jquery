@@ -13,8 +13,9 @@ import { CategoryComponent } from './pages/category/category.component';
 import { GroupItemComponent } from './pages/groupitem/group-item.component';
 
 import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.component';
-
 import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
+import { OutSelect } from './shared/components/outselect/outselect.component';
+import { CallAPIDirective } from './shared/directives/call-api.directive';
 
 const appRoutes: Routes = [
   { path: 'department', component: DepartmentComponent },
@@ -43,6 +44,8 @@ const appRoutes: Routes = [
     Tabledata2Component,
     SearchselectComponent,
     GroupItemComponent,
+    OutSelect,
+    CallAPIDirective
   ],
   bootstrap: [AppComponent],
 })
