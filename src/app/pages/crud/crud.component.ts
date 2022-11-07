@@ -11,11 +11,12 @@ export interface modelTable {
 }
 
 @Component({
-  selector: 'app-department',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.css'],
+  selector: 'app-crud',
+  templateUrl: './crud.component.html',
+  styleUrls: ['./crud.component.css']
 })
-export class DepartmentComponent implements OnInit {
+export class CrudComponent implements OnInit { 
+
   formModal: any;
   varmodelTable: modelTable = {
     apiTable: 'department',
@@ -31,11 +32,6 @@ export class DepartmentComponent implements OnInit {
     // );
   }
 
-  // openFormModal() {
-  //   this.formModal.show();
-  // }
-  // saveSomeThing() {
-  //   // confirm or save something
-  //   this.formModal.hide();
-  // }
+  
+
 }
