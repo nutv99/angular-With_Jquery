@@ -18,11 +18,12 @@ export interface modelTable {
 export class CrudComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
-    apiTable: 'category',
+    apiTable: 'department',
     Caption: 'แผนกสินค้า',
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
   };
+
   constructor() {}
 
   ngOnInit() {
