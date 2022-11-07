@@ -71,8 +71,9 @@ export class Tabledata2Component implements OnInit {
     console.log('URL', this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table(data);
-      this.results = data;
+      console.table(data.data);
+      this.results = data.data;
+      this.headerTable = data.HeadCol ;
       this.AllRec = data.totalRec;
     });
   }
