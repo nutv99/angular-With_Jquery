@@ -13,13 +13,12 @@ export interface modelTable {
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
-  styleUrls: ['./crud.component.css']
+  styleUrls: ['./crud.component.css'],
 })
-export class CrudComponent implements OnInit { 
-
+export class CrudComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
-    apiTable: 'department',
+    apiTable: 'category',
     Caption: 'แผนกสินค้า',
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
@@ -31,7 +30,4 @@ export class CrudComponent implements OnInit {
     //   document.getElementById('myModal')
     // );
   }
-
-  
-
 }
