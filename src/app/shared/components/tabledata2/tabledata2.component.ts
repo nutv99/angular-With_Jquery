@@ -3,7 +3,7 @@ import { Input, Output, EventEmitter } from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';

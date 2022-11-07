@@ -46,7 +46,7 @@
         </div>
         <ul id="A1" class="ulmenu">
           <li *ngFor="let hero of menu[0].Child">
-            <a routerLink="/{{ hero.linkTo }}"> {{ hero.caption }} </a>
+            <a routerLink="/{{ hero.linkTo }}" routerLinkActive="active"> {{ hero.caption }} </a>
           </li>
         </ul>
         <!-- Start menu 2 -->

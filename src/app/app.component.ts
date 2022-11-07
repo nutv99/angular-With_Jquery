@@ -3,6 +3,8 @@ import $ from 'jquery';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -81,7 +83,13 @@ export class AppComponent {
         },
       ],
     },
-  ];
+  ]; 
+
+  constructor(
+    
+    private route: ActivatedRoute,
+    private router: Router        
+  ) { }
 
   ngOnInit() {
     $(document).ready(() => {
