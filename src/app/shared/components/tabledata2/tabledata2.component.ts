@@ -49,7 +49,7 @@ export class Tabledata2Component implements OnInit {
 
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
-    // console.log('API URL ', this.apiName);
+    console.log('API URL ', this.varModelTable.apiTable);
     this.headerTable = this.varModelTable.headerColTable;
     // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
@@ -65,14 +65,15 @@ export class Tabledata2Component implements OnInit {
     this.results = '';
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
-      this.tableAPI +
+      this.varModelTable.apiTable +
       '/ByPageNo/' +
       pageno;
+    console.log('URL', this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
-      this.AllRec = data.totalRec;
       this.results = data.data;
+      this.AllRec = data.totalRec;
     });
   }
 
