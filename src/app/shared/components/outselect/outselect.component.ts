@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-out-select',
-  templateUrl: './out-select.component.html',
-  styleUrls: ['./out-select.component.css'],
+  templateUrl: './outselect.component.html',
+  styleUrls: ['./outselect.component.css'],
 })
 export class OutSelect implements OnInit {
   @Input() apiPathInput: string;
