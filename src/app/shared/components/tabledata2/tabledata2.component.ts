@@ -50,7 +50,8 @@ export class Tabledata2Component implements OnInit {
   ngOnInit(): void {
     //this.apiName = environment.apiHost + apiPath.departmentByPageNo;
     // console.log('API URL ', this.apiName);
-    this.headerTable = this.varModelTable.headerTable;
+    this.headerTable = this.varModelTable.headerColTable;
+    // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
     if (this._Activatedroute.snapshot.paramMap.get('id')) {
       this.pageno = this._Activatedroute.snapshot.paramMap.get('id');
@@ -63,7 +64,9 @@ export class Tabledata2Component implements OnInit {
   fetchData(pageno) {
     this.results = '';
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/'+  this.tableAPI +'/ByPageNo/' +
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
+      this.tableAPI +
+      '/ByPageNo/' +
       pageno;
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา

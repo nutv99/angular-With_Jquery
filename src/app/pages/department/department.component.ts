@@ -6,7 +6,9 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 declare var window: any;
 export interface modelTable {
   apiTable: string;
-  headerTable: string[];
+  Caption: string;
+  headerColTable: string[];
+  ParentTableList: string[];
 }
 
 @Component({
@@ -18,7 +20,9 @@ export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
     apiTable: 'department',
-    headerTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
+    Caption: 'แผนกสินค้า',
+    headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
+    ParentTableList: [],
   };
   constructor() {}
 
