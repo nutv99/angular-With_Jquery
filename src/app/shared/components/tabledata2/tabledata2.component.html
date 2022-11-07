@@ -22,8 +22,8 @@
               <th *ngFor="let txt of headerTable">{{ txt }}</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let result of results">
+          <tbody style="font-size:14px">
+            <tr *ngFor="let result of results" style="vertical-align: middle;">
               <td>{{ result[2] }}</td>
               <td>{{ result[4] }}</td>
               <td>{{ result[2] }}</td>
@@ -35,14 +35,13 @@
                   style="margin:4px"
                 />
               </td>
-              <td class="white-space-nowrap">
+              <td class="white-space-nowrap" style="text-align:center">
                 <a
                   class="btn btn-outline-success"
                   placement="bottom"
                   ngbTooltip="Edit"
                   style="margin-right:10px"
                 >
-                  <!-- <i class="bi bi-pencil"></i> -->
                   <fa-icon [icon]="faEdit"></fa-icon>
                 </a>
                 <button
