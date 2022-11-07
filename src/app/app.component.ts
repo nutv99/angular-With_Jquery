@@ -38,7 +38,7 @@ export class AppComponent {
         },
         {
           name: 'groupItem',
-          linkTo: 'crud//group/1',
+          linkTo: 'group/1',
           caption: 'กลุ่มสินค้า',
         },
       ],

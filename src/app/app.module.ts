@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'group', component: GroupItemComponent },
+  { path: 'group/1', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
