@@ -77,6 +77,10 @@ export class Tabledata2Component implements OnInit {
     });
   }
 
+  confirmDelete() {
+    alert('Delete ?');
+  }
+
   // loadEmployee() {
   //   this.empService
   //     .getAll()

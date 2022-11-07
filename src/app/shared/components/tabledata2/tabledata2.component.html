@@ -41,6 +41,7 @@
                   placement="bottom"
                   ngbTooltip="Edit"
                   style="margin-right:10px"
+                  href="{{ varModelTable.Caption }}/edit/{{ result[0] }}"
                 >
                   <fa-icon [icon]="faEdit"></fa-icon>
                 </a>
@@ -48,6 +49,7 @@
                   class="btn btn-outline-danger"
                   placement="bottom"
                   ngbTooltip="Delete"
+                  (click)="confirmDelete()"
                 >
                   <!-- <i class="bi bi-trash"></i> -->
                   <fa-icon [icon]="faDeleteLeft"></fa-icon>
@@ -61,6 +63,8 @@
             </tr>
           </tbody>
         </table>
+
+        <!-- Navigator Section         -->
         <div style="display:flex">
           <nav
             aria-label="Page navigation example"

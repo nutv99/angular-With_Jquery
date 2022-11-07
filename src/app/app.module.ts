@@ -20,6 +20,7 @@ import { CallAPIDirective } from './shared/directives/call-api.directive';
 const appRoutes: Routes = [
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
+  { path: 'department/edit/:id', component: DepartmentComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'group', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     SearchselectComponent,
     GroupItemComponent,
     OutSelect,
-    CallAPIDirective
+    CallAPIDirective,
   ],
   bootstrap: [AppComponent],
 })
