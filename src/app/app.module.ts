@@ -20,7 +20,7 @@ import { CallAPIDirective } from './shared/directives/call-api.directive';
 import { CrudComponent } from './pages/crud/crud.component';
 
 const appRoutes: Routes = [
-  { path: 'crud/:pageid/:pageno', component:CrudComponent},
+  { path: 'crud/:pageid/:pageno', component: CrudComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     GroupItemComponent,
     OutSelect,
     CallAPIDirective,
-    CrudComponent
+    CrudComponent,
   ],
   bootstrap: [AppComponent],
 })
