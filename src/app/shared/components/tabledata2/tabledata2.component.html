@@ -86,7 +86,7 @@
               <li class="page-item">
                 <a
                   class="page-link"
-                  routerLink="/department/1"
+                  routerLink="/crud/department/1"
                   routerLinkActive="active"
                   (click)="fetchData(1)"
                   >1</a
@@ -95,21 +95,13 @@
               <li class="page-item">
                 <a
                   class="page-link"
-                  routerLink="/department/2"
+                  routerLink="/crud/department/2"
                   routerLinkActive="active"
                   (click)="fetchData(2)"
                   >2</a
                 >
               </li>
-              <li class="page-item">
-                <a
-                  class="page-link"
-                  [routerLink]="['/department', 3]"
-                  routerLinkActive="active"
-                  (click)="fetchData(3)"
-                  >3</a
-                >
-              </li>
+
               <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
           </nav>

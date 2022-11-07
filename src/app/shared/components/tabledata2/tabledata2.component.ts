@@ -25,6 +25,7 @@ export class Tabledata2Component implements OnInit {
   tableAPI: string;
   @Input() varModelTable;
 
+  pageid: string = '';
   pageno: string = '1';
 
   apiName: string = '';
@@ -53,8 +54,9 @@ export class Tabledata2Component implements OnInit {
     this.headerTable = this.varModelTable.headerColTable;
     // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
-    if (this._Activatedroute.snapshot.paramMap.get('id')) {
-      this.pageno = this._Activatedroute.snapshot.paramMap.get('id');
+    if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
+      this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
+      this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
       this.pageno = '1';
     }
@@ -73,7 +75,7 @@ export class Tabledata2Component implements OnInit {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
       this.results = data.data;
-      this.headerTable = data.HeadCol ;
+      this.headerTable = data.HeadCol;
       this.AllRec = data.totalRec;
     });
   }
