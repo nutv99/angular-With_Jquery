@@ -6,6 +6,7 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
+import { APIService } from '../../_services/api.service';
 
 declare var window: any;
 export interface modelTable {
@@ -41,7 +42,7 @@ export class DepartmentComponent implements OnInit {
   stageForm: boolean = false;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
     // this.formModal = new window.bootstrap.Modal(
@@ -74,6 +75,7 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
+    //this.apiService.create(payload)
   }
 
   saveDepartment() {}
