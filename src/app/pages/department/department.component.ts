@@ -4,7 +4,8 @@ import { Tabledata2Component } from '../../shared/components/tabledata2/tabledat
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
 import { DepartmentModel } from '../../_models/department';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import { CustomvalidationService } from '../services/customvalidation.service';
 
 declare var window: any;
 export interface modelTable {
@@ -27,7 +28,7 @@ export class DepartmentComponent implements OnInit {
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
   };
-// Initial Form Model VAR & Value
+  // Initial Form Model VAR & Value
   departmentModel: DepartmentModel = {
     id: 2,
     departmentCode: 'A1',
@@ -40,29 +41,44 @@ export class DepartmentComponent implements OnInit {
   stageForm: boolean = false;
   myForm: FormGroup;
 
-
-  constructor(private fb: FormBuilder) {
-    this.myForm = this.fb.group(this.departmentModel);
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     // this.formModal = new window.bootstrap.Modal(
     //   document.getElementById('myModal')
     // );
+
+    // this.myForm = this.fb.group({
+    //   id: ['', Validators.required],
+    //   departmentCode: ['', Validators.required],
+    //   departmentDesc: ['', Validators.required],
+    //   lang: ['th', Validators.required],
+    //   ImageName: '',
+    // });
+    this.myForm = this.fb.group({
+      departmentDesc: ['', Validators.required],
+    });
+  }
+
+  get f() {
+    return this.myForm.controls;
   }
   setStageForm() {
     this.stageForm = true;
     this.stageCrud = false;
   }
 
-  saveDepartment() {
-
+  onSubmit() {
+    //this.registerForm.valid
+    if (this.myForm.invalid) {
+      alert('Cannot Submit');
+      return;
+    }
   }
 
-  searchDepartment() {
+  saveDepartment() {}
 
-  }
-  
+  searchDepartment() {}
 
   // openFormModal() {
   //   this.formModal.show();
