@@ -40,6 +40,7 @@ export class DepartmentComponent implements OnInit {
 
   id: number = 1;
   ModelName: string = 'department';
+  FormMode : string = 'post' ;
 
   stageCrud: boolean = true;
   stageForm: boolean = false;
@@ -71,9 +72,15 @@ export class DepartmentComponent implements OnInit {
   get f() {
     return this.myForm.controls;
   }
+
   setStageForm() {
-    this.stageForm = true;
-    this.stageCrud = false;
+    if (this.stageForm === false) {
+      this.stageForm = true;
+      this.stageCrud = false;
+    } else {
+      this.stageForm = false;
+      this.stageCrud = true;
+    }
   }
 
   onSubmit() {
@@ -82,24 +89,27 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
+    console.log('Form Data', this.myForm.value);
     //this.apiService.create(payload)
   }
 
   getByID(id) {
     console.clear();
-    this.apiService
-      .getById(this.ModelName, id)
-      .subscribe((response: any) => {
-        // this.departmentModel = response;
-        //console.log('res',response[0].departmentDesc) ;
-        //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
-        this.myForm.setValue(response);
-      });
+    this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
+      // this.departmentModel = response;
+      //console.log('res',response[0].departmentDesc) ;
+      //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
+      this.myForm.setValue(response);
+
+      //this.myForm.get('Mode').setValue('patch');
+    });
   }
 
   setIDOnForm(e: any) {
     console.log('On Form ' + e);
     this.myForm.get('id').setValue(e);
+    this.FormMode = 'patch' ;
+
     this.getByID(e);
   }
 
