@@ -1,16 +1,32 @@
 <h2>Department</h2>
-
+<form [formGroup]="myForm">
+  Value: {{ myForm.value | json }}
 <div class="modal-content" id="myModal" *ngIf="stageForm">
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
     <button type="button" class="btn-close" aria-label="Close"></button>
   </div>
-  <div class="modal-body">...</div>
+  <div class="modal-body">
+    ...
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label" style=""
+        >ชื่อหมวดสินค้า</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+        formControlName="departmentDesc"
+      />
+    </div>
+  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary">Close</button>
     <button type="button" class="btn btn-primary">Save changes</button>
   </div>
 </div>
+</form>
 <!-- <app-searchselect></app-searchselect> -->
 <button (click)="setStageForm()">Add</button>
 สถานะ :: {{ stageCrud }}

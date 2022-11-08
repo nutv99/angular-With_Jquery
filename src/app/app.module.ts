@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { Tabledata1Component } from './shared/components/tabledata1/tabledata1.component';
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    ReactiveFormsModule,
     
     RouterModule.forRoot(
       appRoutes,

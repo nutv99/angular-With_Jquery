@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
+import { DepartmentModel } from '../../_models/department';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 declare var window: any;
 export interface modelTable {
   apiTable: string;
@@ -25,10 +28,22 @@ export class DepartmentComponent implements OnInit {
     ParentTableList: [],
   };
 
+  departmentModel: DepartmentModel = {
+    id: 2,
+    departmentCode: 'A1',
+    departmentDesc: 'แผนก....',
+    lang: 'th',
+    ImageName: '',
+  };
+
   stageCrud: boolean = true;
   stageForm: boolean = false;
+  myForm: FormGroup;
 
-  constructor() {}
+  
+  constructor(private fb: FormBuilder) {
+    this.myForm = this.fb.group(this.departmentModel);
+  }
 
   ngOnInit() {
     // this.formModal = new window.bootstrap.Modal(
