@@ -1,7 +1,7 @@
 <h2>Department</h2>
 
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  Value: {{ myForm.value | json }} 
+  Value: {{ myForm.value | json }}
   <button (click)="getByID()">Get ByID</button>
   <div class="modal-content" id="myModal" *ngIf="stageForm">
     <div class="modal-header">
@@ -12,6 +12,29 @@
       ...
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label" style=""
+          >ID</label
+        >
+        <input type="hidden" class="form-control" formControlName="id" />
+        <span
+          class="text-danger"
+          *ngIf="f.departmentDesc.touched && f.departmentDesc.errors?.required"
+        >
+          Deparemtn Name is required
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style=""
+          >Department Code</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          formControlName="departmentCode"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style=""
           >ชื่อหมวดสินค้า</label
         >
         <input
@@ -19,16 +42,13 @@
           class="form-control"
           formControlName="departmentDesc"
         />
-        <!-- <span class="text-danger" *ngIf="f.departmentDesc.errors">
-          Name is required
-        </span> -->
+      </div>
 
-        <span
-          class="text-danger"
-          *ngIf="f.departmentDesc.touched && f.departmentDesc.errors?.required"
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style=""
+          >lang</label
         >
-          Deparemtn Name is required
-        </span>
+        <input type="text" class="form-control" formControlName="lang" />
       </div>
     </div>
     <div class="modal-footer">

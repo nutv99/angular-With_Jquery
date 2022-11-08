@@ -60,7 +60,11 @@ export class DepartmentComponent implements OnInit {
     //   ImageName: '',
     // });
     this.myForm = this.fb.group({
-      departmentDesc: ['', Validators.required],
+      id: [''],
+      departmentCode: [''],
+      departmentDesc: [''],
+      lang: [''],
+      imageName:['']
     });
   }
 
@@ -82,10 +86,15 @@ export class DepartmentComponent implements OnInit {
   }
 
   getByID() {
+    console.clear();
     this.apiService
       .getById(this.ModelName, this.id)
       .subscribe((response: any) => {
-        this.departmentModel = response;
+       // this.departmentModel = response;
+        //console.log('res',response[0].departmentDesc) ;
+        //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
+        this.myForm.setValue(response);
+
       });
   }
 
