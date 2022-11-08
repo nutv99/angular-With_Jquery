@@ -27,7 +27,7 @@ export class DepartmentComponent implements OnInit {
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
   };
-
+// Initial Form Model VAR & Value
   departmentModel: DepartmentModel = {
     id: 2,
     departmentCode: 'A1',
@@ -40,7 +40,7 @@ export class DepartmentComponent implements OnInit {
   stageForm: boolean = false;
   myForm: FormGroup;
 
-  
+
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group(this.departmentModel);
   }
@@ -54,6 +54,15 @@ export class DepartmentComponent implements OnInit {
     this.stageForm = true;
     this.stageCrud = false;
   }
+
+  saveDepartment() {
+
+  }
+
+  searchDepartment() {
+
+  }
+  
 
   // openFormModal() {
   //   this.formModal.show();
