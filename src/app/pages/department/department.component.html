@@ -1,6 +1,6 @@
 <h2>Department</h2>
 
-<!-- <div class="modal-content" id="myModal">
+<div class="modal-content" id="myModal" *ngIf="stageForm">
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
     <button type="button" class="btn-close" aria-label="Close"></button>
@@ -10,8 +10,13 @@
     <button type="button" class="btn btn-secondary">Close</button>
     <button type="button" class="btn btn-primary">Save changes</button>
   </div>
-</div> -->
+</div>
 <!-- <app-searchselect></app-searchselect> -->
-<app-tabledata2 [varModelTable]="varmodelTable"></app-tabledata2>
+<button (click)="setStageForm()">Add</button>
+สถานะ :: {{ stageCrud }}
+<app-tabledata2
+  [varModelTable]="varmodelTable"
+  *ngIf="stageCrud"
+></app-tabledata2>
 
 <!-- routerLinkActive="active" -->

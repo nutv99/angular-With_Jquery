@@ -19,12 +19,13 @@ import { CallAPIDirective } from './shared/directives/call-api.directive';
 
 import { CrudComponent } from './pages/crud/crud.component';
 
+
 const appRoutes: Routes = [
   { path: 'crud/:pageid/:pageno', component: CrudComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
-  { path: 'category', component: CategoryComponent },
+  { path: 'category/1', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only set true

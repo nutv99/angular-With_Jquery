@@ -1,6 +1,8 @@
 import { Component, VERSION, OnInit } from '@angular/core';
 import $ from 'jquery';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { Mainmenu } from './shared/mainmenu';
+
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -21,6 +23,7 @@ export class AppComponent {
   filmIcon = faFilm;
   faChevronCircleRight = faChevronCircleRight;
   faHamburger = faBars;
+  //menu = Mainmenu.;
 
   menu = [
     {
@@ -28,12 +31,12 @@ export class AppComponent {
       Child: [
         {
           name: 'Deparment',
-          linkTo: '/crud/department/1',
+          linkTo: 'department/1',
           caption: 'แผนกสินค้า',
         },
         {
           name: 'category',
-          linkTo: 'crud/category/1',
+          linkTo: 'category/1',
           caption: 'หมวดสินค้า',
         },
         {
@@ -83,13 +86,9 @@ export class AppComponent {
         },
       ],
     },
-  ]; 
+  ];
 
-  constructor(
-    
-    private route: ActivatedRoute,
-    private router: Router        
-  ) { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     $(document).ready(() => {

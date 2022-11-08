@@ -24,12 +24,20 @@ export class DepartmentComponent implements OnInit {
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
   };
+
+  stageCrud: boolean = true;
+  stageForm: boolean = false;
+
   constructor() {}
 
   ngOnInit() {
     // this.formModal = new window.bootstrap.Modal(
     //   document.getElementById('myModal')
     // );
+  }
+  setStageForm() {
+    this.stageForm = true;
+    this.stageCrud = false;
   }
 
   // openFormModal() {
