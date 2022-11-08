@@ -85,10 +85,10 @@ export class DepartmentComponent implements OnInit {
     //this.apiService.create(payload)
   }
 
-  getByID() {
+  getByID(id) {
     console.clear();
     this.apiService
-      .getById(this.ModelName, this.id)
+      .getById(this.ModelName, id)
       .subscribe((response: any) => {
         // this.departmentModel = response;
         //console.log('res',response[0].departmentDesc) ;
@@ -98,7 +98,9 @@ export class DepartmentComponent implements OnInit {
   }
 
   setIDOnForm(e: any) {
-    console.log('On Form ' + e.target.value);
+    console.log('On Form ' + e);
+    this.myForm.get('id').setValue(e);
+    this.getByID(e);
   }
 
   saveDepartment() {}

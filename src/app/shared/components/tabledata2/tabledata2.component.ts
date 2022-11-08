@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -22,9 +21,11 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata2.component.css'],
 })
 export class Tabledata2Component implements OnInit {
+
+  @Output() MYIDOut: EventEmitter<any> = new EventEmitter();
   tableAPI: string;
   @Input() varModelTable;
-  @Output() IDOut: EventEmitter<number> = new EventEmitter();
+  
 
   pageid: string = '';
   pageno: string = '1';
@@ -82,9 +83,8 @@ export class Tabledata2Component implements OnInit {
   }
 
   setIDOut(id: number) {
-    let aa = id ;
-    alert(aa) ;
-    this.IDOut.emit(aa);
+    let aa = id ;    
+    this.MYIDOut.emit(aa);
     
   }
 
