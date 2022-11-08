@@ -23,6 +23,7 @@ import { first } from 'rxjs';
 export class Tabledata2Component implements OnInit {
 
   @Output() MYIDOut: EventEmitter<any> = new EventEmitter();
+  @Output() MYIDOutDelete: EventEmitter<any> = new EventEmitter();
   tableAPI: string;
   @Input() varModelTable;
   
@@ -88,9 +89,15 @@ export class Tabledata2Component implements OnInit {
     
   }
 
-  confirmDelete() {
-    alert('Delete ?');
+  setIDOutDelete(id: number) {
+    let aa = id ;    
+    this.MYIDOutDelete.emit(aa);
+    
   }
+
+  // confirmDelete() {
+  //   alert('Delete ?');
+  // }
 
   // loadEmployee() {
   //   this.empService

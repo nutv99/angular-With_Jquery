@@ -89,6 +89,7 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
+
     console.log('Form Data', this.myForm.value);
     if (this.FormMode === 'post') {
       this.apiService.create(this.ModelName,this.myForm.value).subscribe((response: any) => {
@@ -119,7 +120,13 @@ export class DepartmentComponent implements OnInit {
     console.log('On Form ' + e);
     this.myForm.get('id').setValue(e);
     this.FormMode = 'patch' ;
+    this.getByID(e);
+  }
 
+  OnDelete(e: any) {
+    console.log('On Form ' + e);
+    this.myForm.get('id').setValue(e);
+    this.FormMode = 'patch' ;
     this.getByID(e);
   }
 
