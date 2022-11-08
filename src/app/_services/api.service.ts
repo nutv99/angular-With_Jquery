@@ -48,6 +48,7 @@ export class APIService {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }
 
+  // params คือ  payload
   create(params: any) {
     return this.http.post(baseUrl, params, this.httpOptions);
   }
