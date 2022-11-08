@@ -24,6 +24,7 @@ import { first } from 'rxjs';
 export class Tabledata2Component implements OnInit {
   tableAPI: string;
   @Input() varModelTable;
+  @Output() IDOut: EventEmitter<number> = new EventEmitter();
 
   pageid: string = '';
   pageno: string = '1';
@@ -78,6 +79,13 @@ export class Tabledata2Component implements OnInit {
       this.headerTable = data.HeadCol;
       this.AllRec = data.totalRec;
     });
+  }
+
+  setIDOut(id: number) {
+    let aa = id ;
+    alert(aa) ;
+    this.IDOut.emit(aa);
+    
   }
 
   confirmDelete() {

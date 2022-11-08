@@ -64,7 +64,7 @@ export class DepartmentComponent implements OnInit {
       departmentCode: [''],
       departmentDesc: [''],
       lang: [''],
-      imageName:['']
+      imageName: [''],
     });
   }
 
@@ -90,12 +90,15 @@ export class DepartmentComponent implements OnInit {
     this.apiService
       .getById(this.ModelName, this.id)
       .subscribe((response: any) => {
-       // this.departmentModel = response;
+        // this.departmentModel = response;
         //console.log('res',response[0].departmentDesc) ;
         //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
         this.myForm.setValue(response);
-
       });
+  }
+
+  setIDOnForm(e: any) {
+    console.log('On Form ' + e.target.value);
   }
 
   saveDepartment() {}
