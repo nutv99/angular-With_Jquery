@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environment';
 import { Emp } from '../_models/emp';
 
-const baseUrl = environment.apiUrl + '/employee';
+const baseUrl = environment.apiUrl  ;
 
 @Injectable({
   providedIn: 'root',
@@ -26,13 +26,12 @@ export class APIService {
     return this.http.get<any>(baseUrl);
   }
 
-  getById(id: number) {
-    return this.http.get<any>(`${baseUrl}/${id}`);
+  getById(modelName:string,id: number) {
+    let lang  = 'th' ;
+    return this.http.get<any>(`${baseUrl}/${lang}/${modelName}/BySelf/${id}`);
   }
 
-  getBySelf(id: number) {
-    return this.http.get<any>(`${baseUrl}/${id}`);
-  }
+  
   getByPageNo(id: number) {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }

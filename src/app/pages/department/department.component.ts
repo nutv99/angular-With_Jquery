@@ -39,6 +39,7 @@ export class DepartmentComponent implements OnInit {
   };
 
   id: number = 1;
+  ModelName: string = 'department';
 
   stageCrud: boolean = true;
   stageForm: boolean = false;
@@ -81,10 +82,11 @@ export class DepartmentComponent implements OnInit {
   }
 
   getByID() {
-    this.apiService.getById(this.id).subscribe((response: any) => {
-
-      
-    });
+    this.apiService
+      .getById(this.ModelName, this.id)
+      .subscribe((response: any) => {
+        this.departmentModel = response;
+      });
   }
 
   saveDepartment() {}
