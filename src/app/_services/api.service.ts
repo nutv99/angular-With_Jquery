@@ -9,6 +9,7 @@ const baseUrl = environment.apiUrl + '/employee';
 @Injectable({
   providedIn: 'root',
 })
+
 export class APIService {
   constructor(private http: HttpClient) {}
 

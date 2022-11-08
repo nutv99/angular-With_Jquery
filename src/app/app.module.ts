@@ -17,7 +17,7 @@ import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.c
 import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
 import { OutSelect } from './shared/components/outselect/outselect.component';
 import { CallAPIDirective } from './shared/directives/call-api.directive'; 
-import { APIService} from './_services/api.service' ;
+
 
 import { CrudComponent } from './pages/crud/crud.component';
 
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
     GroupItemComponent,
     OutSelect,
     CallAPIDirective,
-    APIService,
+    
     
     CrudComponent,
   ],

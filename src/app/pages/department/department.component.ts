@@ -38,6 +38,8 @@ export class DepartmentComponent implements OnInit {
     ImageName: '',
   };
 
+  id: number = 1;
+
   stageCrud: boolean = true;
   stageForm: boolean = false;
   myForm: FormGroup;
@@ -76,6 +78,13 @@ export class DepartmentComponent implements OnInit {
       return;
     }
     //this.apiService.create(payload)
+  }
+
+  getByID() {
+    this.apiService.getById(this.id).subscribe((response: any) => {
+
+      
+    });
   }
 
   saveDepartment() {}
