@@ -90,6 +90,16 @@ export class DepartmentComponent implements OnInit {
       return;
     }
     console.log('Form Data', this.myForm.value);
+    if (this.FormMode === 'post') {
+      this.apiService.create(this.ModelName,this.myForm.value).subscribe((response: any) => {
+        this.myForm.setValue(response); 
+       }); 
+    } else {
+      this.apiService.create(this.ModelName,this.myForm.value).subscribe((response: any) => {
+        this.myForm.setValue(response); 
+       }); 
+
+    }
     //this.apiService.create(payload)
   }
 
