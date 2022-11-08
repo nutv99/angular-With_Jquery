@@ -28,6 +28,10 @@ export class APIService {
   getById(id: number) {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }
+
+  getBySelf(id: number) {
+    return this.http.get<any>(`${baseUrl}/${id}`);
+  }
   getByPageNo(id: number) {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }
