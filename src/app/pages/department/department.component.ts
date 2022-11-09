@@ -8,8 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
 
-//import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 import Swal from 'sweetalert2';
+
 import { TYPE } from '../../shared/values.constants';
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -67,6 +68,7 @@ export class DepartmentComponent implements OnInit {
       lang: [''],
       imageName: [''],
     });
+    this.alertWithSuccess() ;
   }
 
   get f() {
@@ -89,9 +91,7 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
-
-    // console.log('Form Data', this.myForm.value);
-    // console.log('Form Mode', this.FormMode);
+   
     if (this.FormMode === 'post') {      
       let PayLoad = {
         dataPayload: this.myForm.value,
@@ -99,18 +99,23 @@ export class DepartmentComponent implements OnInit {
       this.apiService
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
-          this.myForm.setValue(response);
           this.alertWithSuccess() ;
+          
+          
         });
-    } else {
+    } 
+    
+    if (this.FormMode === 'patch') {
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
+    // alert('Update')
       this.apiService
         .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
+         // alert('Success Update');
           this.alertWithSuccess();
-          //this.myForm.setValue(response);
+          
         });
     }
     //this.apiService.create(payload)
