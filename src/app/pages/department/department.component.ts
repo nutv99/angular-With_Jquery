@@ -59,17 +59,7 @@ export class DepartmentComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
-    // this.formModal = new window.bootstrap.Modal(
-    //   document.getElementById('myModal')
-    // );
-
-    // this.myForm = this.fb.group({
-    //   id: ['', Validators.required],
-    //   departmentCode: ['', Validators.required],
-    //   departmentDesc: ['', Validators.required],
-    //   lang: ['th', Validators.required],
-    //   ImageName: '',
-    // });
+        
     this.myForm = this.fb.group({
       id: [''],
       departmentCode: [''],
@@ -100,12 +90,9 @@ export class DepartmentComponent implements OnInit {
       return;
     }
 
-    console.log('Form Data', this.myForm.value);
-    console.log('Form Mode', this.FormMode);
-    if (this.FormMode === 'post') {
-      // let PayLoad = {
-      //   dataPayload : this.myForm.value
-      // }
+    // console.log('Form Data', this.myForm.value);
+    // console.log('Form Mode', this.FormMode);
+    if (this.FormMode === 'post') {      
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
