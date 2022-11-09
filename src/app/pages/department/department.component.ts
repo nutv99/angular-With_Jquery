@@ -100,6 +100,9 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
+    let PayLoad = {
+      dataPayload : this.myForm.value
+    }
 
     console.log('Form Data', this.myForm.value);
     if (this.FormMode === 'post') {
@@ -113,8 +116,9 @@ export class DepartmentComponent implements OnInit {
           this.myForm.setValue(response);
         });
     } else {
+
       this.apiService
-        .create(this.ModelName, this.myForm.value)
+        .update(this.ModelName, PayLoad)
         .subscribe((response: any) => {
           this.myForm.setValue(response);
         });
@@ -148,10 +152,17 @@ export class DepartmentComponent implements OnInit {
   }
 
   OnDelete(e: any) {
-    console.log('On Form ' + e);
+    console.log('On Form ' + e); 
+    let id = e ;
+    
+    this.apiService
+    .delete(this.ModelName, id)
+    .subscribe((response: any) => {
+      this.myForm.setValue(response);
+    });
     //alert('Delete ?' + e);
-    this.confirmBox();
-    return;
+    //this.confirmBox();
+    //return;
     this.myForm.get('id').setValue(e);
     this.FormMode = 'delete';
     this.getByID(e);

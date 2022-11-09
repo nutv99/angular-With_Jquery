@@ -4,12 +4,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environment';
 import { Emp } from '../_models/emp';
 
-const baseUrl = environment.apiUrl  ;
+const baseUrl = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class APIService {
   constructor(private http: HttpClient) {}
 
@@ -26,12 +25,11 @@ export class APIService {
     return this.http.get<any>(baseUrl);
   }
 
-  getById(modelName:string,id: number) {
-    let lang  = 'th' ;
+  getById(modelName: string, id: number) {
+    let lang = 'th';
     return this.http.get<any>(`${baseUrl}/${lang}/${modelName}/BySelf/${id}`);
   }
 
-  
   getByPageNo(id: number) {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }
@@ -49,16 +47,18 @@ export class APIService {
   }
 
   // params คือ  payload
-  create(modelName:string,payload: any) {
-    let postUrl = baseUrl + '/'+ modelName + '/create' ;
+  create(modelName: string, payload: any) {
+    let postUrl = baseUrl + '/' + modelName + '/create';
     return this.http.post(postUrl, payload, this.httpOptions);
   }
 
-  update(params: any) {
-    return this.http.put(`${baseUrl}`, params, this.httpOptions);
+  update(modelName: string, payload: any) {
+    let postUrl = baseUrl + '/' + modelName + '/update';
+    return this.http.put(postUrl, payload, this.httpOptions);
   }
 
-  delete(id: number) {
-    return this.http.delete(`${baseUrl}/${id}`, this.httpOptions);
+  delete(modelName: string, id: number) {
+    let postUrl = baseUrl + '/' + modelName + '/delete/'+ id ;
+    return this.http.delete(postUrl, this.httpOptions);
   }
 }
