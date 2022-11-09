@@ -10,6 +10,7 @@ import { APIService } from '../../_services/api.service';
 
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
 import Swal from 'sweetalert2';
+import { SweetAlertOptions } from 'sweetalert2';
 import { TYPE } from '../../shared/values.constants';
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -46,6 +47,7 @@ export class DepartmentComponent implements OnInit {
     lang: 'th',
     ImageName: '',
   };
+  alertOpt: SweetAlertOptions = {};
 
   id: number = 1;
   ModelName: string = 'department';
@@ -59,14 +61,15 @@ export class DepartmentComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
-        
     this.myForm = this.fb.group({
       id: [''],
       departmentCode: [''],
       departmentDesc: [''],
       lang: [''],
       imageName: [''],
-    });
+    }); 
+
+    
   }
 
   get f() {
@@ -89,17 +92,24 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
+    console.clear();
 
     // console.log('Form Data', this.myForm.value);
     // console.log('Form Mode', this.FormMode);
-    if (this.FormMode === 'post') {      
+    if (this.FormMode === 'post') {
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
       this.apiService
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
-          this.myForm.setValue(response);
+          //this.myForm.setValue(response);
+          let aa = JSON.parse(response) ;
+          alert(aa.workstatus); 
+          
+
+
+
         });
     } else {
       let PayLoad = {
@@ -141,7 +151,7 @@ export class DepartmentComponent implements OnInit {
 
   OnDelete(e: any) {
     console.log('On Form ' + e);
-    let id = e;    
+    let id = e;
     this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
       this.myForm.setValue(response);
     });
