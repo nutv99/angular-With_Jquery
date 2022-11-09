@@ -50,7 +50,8 @@ export class APIService {
 
   // params คือ  payload
   create(modelName:string,payload: any) {
-    return this.http.post(baseUrl, payload, this.httpOptions);
+    let postUrl = baseUrl + '/'+ modelName + '/create' ;
+    return this.http.post(postUrl, payload, this.httpOptions);
   }
 
   update(params: any) {
