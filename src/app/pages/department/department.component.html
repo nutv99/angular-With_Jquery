@@ -52,7 +52,9 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary">Close</button>
+      <button type="button" class="btn btn-secondary" (click)="closeForm()">
+        Close
+      </button>
       <button type="submit" class="btn btn-primary">บันทึก</button>
     </div>
   </div>
@@ -66,7 +68,7 @@
 </form>
 <!-- <app-searchselect></app-searchselect> -->
 <hr />
-<div class="flex" style="display:flex">
+<div class="flex" style="display:flex" *ngIf="stageCrud">
   <button
     class="btn btn-primary"
     placement="bottom"

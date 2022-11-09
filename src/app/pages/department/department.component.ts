@@ -30,6 +30,8 @@ export interface modelTable {
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
 })
+
+
 export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -114,6 +116,12 @@ export class DepartmentComponent implements OnInit {
         });
     }
     //this.apiService.create(payload)
+  }
+
+  closeForm() { 
+    this.stageForm = false;
+    this.stageCrud = true;
+     
   }
 
   getByID(id) {
