@@ -1,11 +1,11 @@
 <h2>Department</h2>
 
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" style="padding:20px">
   Value: {{ myForm.value | json }}
   <!-- <button (click)="getByID()">Get ByID</button> -->
   <div class="modal-content" id="myModal" *ngIf="stageForm">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <div class="modal-header" style="background-color:lightgrey">
+      <h5 class="modal-title" id="exampleModalLabel">{{ formTitle }}</h5>
       <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
     <div class="modal-body">
