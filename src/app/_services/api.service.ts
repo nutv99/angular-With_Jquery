@@ -52,7 +52,7 @@ export class APIService {
     return this.http.post(postUrl, payload, this.httpOptions);
   }
 
-  update(modelName: string, payload: any) {
+  update999(modelName: string, payload: any) {
     let postUrl = baseUrl + '/' + modelName + '/update';
     return this.http.put(postUrl, payload, this.httpOptions);
   }

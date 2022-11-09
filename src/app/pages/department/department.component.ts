@@ -122,7 +122,7 @@ export class DepartmentComponent implements OnInit {
         dataPayload : this.myForm.value
       }
       this.apiService
-        .update(this.ModelName, PayLoad)
+        .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
           //this.myForm.setValue(response);
         });
