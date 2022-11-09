@@ -46,7 +46,9 @@
         </div>
         <ul id="A1" class="ulmenu">
           <li *ngFor="let hero of menu[0].Child">
-            <a routerLink="/{{ hero.linkTo }}" routerLinkActive="active"> {{ hero.caption }} </a>
+            <a routerLink="/{{ hero.linkTo }}" routerLinkActive="active">
+              {{ hero.caption }}
+            </a>
           </li>
         </ul>
         <!-- Start menu 2 -->
@@ -87,7 +89,6 @@
 
     <div id="workarea" class="col-sm-10">
       <div id="testdiv" class="myBorder collapsible" style="padding:5px">
-        Work Area
         <router-outlet></router-outlet>
       </div>
     </div>

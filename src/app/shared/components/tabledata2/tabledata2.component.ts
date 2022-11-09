@@ -6,15 +6,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 import { environment } from '../../../environment';
 
 import { Emp } from '../../../_models/emp';
 import { first } from 'rxjs';
 
+// <i class="fa-sharp fa-solid fa-plus"></i>
 @Component({
   selector: 'app-tabledata2',
   templateUrl: './tabledata2.component.html',

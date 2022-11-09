@@ -56,20 +56,36 @@
       <button type="submit" class="btn btn-primary">บันทึก</button>
     </div>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">
-      Register
+      Register  
     </button>
-  </div>
+    
+    
+  </div> -->
 </form>
 <!-- <app-searchselect></app-searchselect> -->
-<button (click)="setStageForm()">Add</button>
-สถานะ :: {{ stageCrud }}
-<app-tabledata2
-  [varModelTable]="varmodelTable"
-  (MYIDOut)="setIDOnForm($event)"
-  (MYIDOutDelete)="OnDelete($event)"
-  *ngIf="stageCrud"
-></app-tabledata2>
+<hr />
+<div class="flex" style="display:flex">
+  <button
+    class="btn btn-primary"
+    placement="bottom"
+    ngbTooltip="Delete"
+    (click)="setStageForm()"
+    style="margin-left:auto;margin-right:10px"
+  >
+    เพิ่มข้อมูล
+  </button>
+</div>
+
+<!-- สถานะ :: {{ stageCrud }} -->
+<div style="padding:20px">
+  <app-tabledata2
+    [varModelTable]="varmodelTable"
+    (MYIDOut)="setIDOnForm($event)"
+    (MYIDOutDelete)="OnDelete($event)"
+    *ngIf="stageCrud"
+  ></app-tabledata2>
+</div>
 
 <!-- routerLinkActive="active" -->

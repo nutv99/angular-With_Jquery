@@ -7,9 +7,15 @@ import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
+
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
 import Swal from 'sweetalert2';
 import { TYPE } from '../../shared/values.constants';
+
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 declare var window: any;
 export interface modelTable {
@@ -141,31 +147,27 @@ export class DepartmentComponent implements OnInit {
 
   saveDepartment() {}
 
-  searchDepartment() {} 
+  searchDepartment() {}
 
-  confirmBox(){
+  confirmBox() {
     Swal.fire({
       title: 'ท่านต้องการ ลบข้อมูลนี้ ?',
       text: 'You will not be able to recover this file!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it'
+      cancelButtonText: 'No, keep it',
     }).then((result) => {
       if (result.value) {
         Swal.fire(
           'Deleted!',
           'Your imaginary file has been deleted.',
           'success'
-        )
+        );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
+        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
       }
-    })
+    });
   }
 
   // openFormModal() {
