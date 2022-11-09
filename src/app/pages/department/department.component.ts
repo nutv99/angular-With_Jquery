@@ -7,6 +7,9 @@ import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
+//import Swal from 'sweetalert2/dist/sweetalert2.js';
+import Swal from 'sweetalert2';
+import { TYPE } from '../../shared/values.constants';
 
 declare var window: any;
 export interface modelTable {
@@ -40,7 +43,7 @@ export class DepartmentComponent implements OnInit {
 
   id: number = 1;
   ModelName: string = 'department';
-  FormMode : string = 'post' ;
+  FormMode: string = 'post';
 
   stageCrud: boolean = true;
   stageForm: boolean = false;
@@ -92,14 +95,17 @@ export class DepartmentComponent implements OnInit {
 
     console.log('Form Data', this.myForm.value);
     if (this.FormMode === 'post') {
-      this.apiService.create(this.ModelName,this.myForm.value).subscribe((response: any) => {
-        this.myForm.setValue(response); 
-       }); 
+      this.apiService
+        .create(this.ModelName, this.myForm.value)
+        .subscribe((response: any) => {
+          this.myForm.setValue(response);
+        });
     } else {
-      this.apiService.create(this.ModelName,this.myForm.value).subscribe((response: any) => {
-        this.myForm.setValue(response); 
-       }); 
-
+      this.apiService
+        .create(this.ModelName, this.myForm.value)
+        .subscribe((response: any) => {
+          this.myForm.setValue(response);
+        });
     }
     //this.apiService.create(payload)
   }
@@ -119,20 +125,48 @@ export class DepartmentComponent implements OnInit {
   setIDOnForm(e: any) {
     console.log('On Form ' + e);
     this.myForm.get('id').setValue(e);
-    this.FormMode = 'patch' ;
+    this.FormMode = 'patch';
     this.getByID(e);
   }
 
   OnDelete(e: any) {
     console.log('On Form ' + e);
+    //alert('Delete ?' + e);
+    this.confirmBox();
+    return;
     this.myForm.get('id').setValue(e);
-    this.FormMode = 'patch' ;
+    this.FormMode = 'delete';
     this.getByID(e);
   }
 
   saveDepartment() {}
 
-  searchDepartment() {}
+  searchDepartment() {} 
+
+  confirmBox(){
+    Swal.fire({
+      title: 'ท่านต้องการ ลบข้อมูลนี้ ?',
+      text: 'You will not be able to recover this file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your imaginary file has been deleted.',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+  }
 
   // openFormModal() {
   //   this.formModal.show();
