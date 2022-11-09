@@ -30,7 +30,6 @@ export interface modelTable {
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
 })
-
 export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -100,7 +99,6 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
-   
 
     console.log('Form Data', this.myForm.value);
     console.log('Form Mode', this.FormMode);
@@ -109,18 +107,17 @@ export class DepartmentComponent implements OnInit {
       //   dataPayload : this.myForm.value
       // }
       let PayLoad = {
-        dataPayload : this.myForm.value
-      }
+        dataPayload: this.myForm.value,
+      };
       this.apiService
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
           this.myForm.setValue(response);
         });
     } else {
-
       let PayLoad = {
-        dataPayload : this.myForm.value
-      }
+        dataPayload: this.myForm.value,
+      };
       this.apiService
         .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
@@ -156,12 +153,9 @@ export class DepartmentComponent implements OnInit {
   }
 
   OnDelete(e: any) {
-    console.log('On Form ' + e); 
-    let id = e ;
-    
-    this.apiService
-    .delete(this.ModelName, id)
-    .subscribe((response: any) => {
+    console.log('On Form ' + e);
+    let id = e;    
+    this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
       this.myForm.setValue(response);
     });
     //alert('Delete ?' + e);

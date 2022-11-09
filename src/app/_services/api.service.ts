@@ -57,8 +57,8 @@ export class APIService {
     return this.http.put(postUrl, payload, this.httpOptions);
   }
 
-  delete(modelName: string, id: number) {
-    let postUrl = baseUrl + '/' + modelName + '/delete/'+ id ;
-    return this.http.delete(postUrl, this.httpOptions);
+  delete999(modelName: string, id: number) {
+    let deleteUrl = baseUrl + '/th/' + modelName + '/delete/'+ id ;
+    return this.http.delete(deleteUrl, this.httpOptions);
   }
 }
