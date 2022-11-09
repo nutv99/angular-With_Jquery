@@ -133,6 +133,7 @@ export class DepartmentComponent implements OnInit {
     this.myForm.get('id').setValue(e);
     this.FormMode = 'patch';
     this.getByID(e);
+    this.setStageForm();
   }
 
   OnDelete(e: any) {
