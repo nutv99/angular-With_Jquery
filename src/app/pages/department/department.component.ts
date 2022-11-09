@@ -6,11 +6,13 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
-import { APIService } from '../../_services/api.service';
+import { APIService } from '../../_services/api.service'; 
+// import { SwalService } from '../../_services/swal.service'; 
+
 
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
-import Swal from 'sweetalert2';
-import { SweetAlertOptions } from 'sweetalert2';
+// import Swal from 'sweetalert2';
+// import { SweetAlertOptions } from 'sweetalert2';
 import { TYPE } from '../../shared/values.constants';
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -47,7 +49,7 @@ export class DepartmentComponent implements OnInit {
     lang: 'th',
     ImageName: '',
   };
-  alertOpt: SweetAlertOptions = {};
+  //alertOpt: SweetAlertOptions = {};
 
   id: number = 1;
   ModelName: string = 'department';
@@ -105,7 +107,9 @@ export class DepartmentComponent implements OnInit {
         .subscribe((response: any) => {
           //this.myForm.setValue(response);
           let aa = JSON.parse(response) ;
-          alert(aa.workstatus); 
+         // this.swalService.swalMsg(aa) ;
+          //this.swalService.alertWithSuccess();
+          //alert(aa.workstatus); 
           
 
 
@@ -167,26 +171,7 @@ export class DepartmentComponent implements OnInit {
 
   searchDepartment() {}
 
-  confirmBox() {
-    Swal.fire({
-      title: 'ท่านต้องการ ลบข้อมูลนี้ ?',
-      text: 'You will not be able to recover this file!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'Your imaginary file has been deleted.',
-          'success'
-        );
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
-      }
-    });
-  }
+  
 
   // openFormModal() {
   //   this.formModal.show();
