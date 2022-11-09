@@ -105,12 +105,13 @@ export class DepartmentComponent implements OnInit {
     }
 
     console.log('Form Data', this.myForm.value);
+    console.log('Form Mode', this.FormMode);
     if (this.FormMode === 'post') {
       let PayLoad = {
         dataPayload : this.myForm.value
       }
       this.apiService
-
+  
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
           this.myForm.setValue(response);
