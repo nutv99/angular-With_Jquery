@@ -18,8 +18,6 @@ import { SearchselectComponent } from './shared/components/searchselect/searchse
 import { OutSelect } from './shared/components/outselect/outselect.component';
 import { CallAPIDirective } from './shared/directives/call-api.directive'; 
 
-//import { SwalService } from './_services/swal.service' ;
-
 
 import { CrudComponent } from './pages/crud/crud.component';
 
@@ -61,7 +59,6 @@ const appRoutes: Routes = [
     
     CrudComponent,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

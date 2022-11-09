@@ -6,13 +6,10 @@ import { SearchselectComponent } from '../../shared/components/searchselect/sear
 import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
-import { APIService } from '../../_services/api.service'; 
-// import { SwalService } from '../../_services/swal.service'; 
-
+import { APIService } from '../../_services/api.service';
 
 //import Swal from 'sweetalert2/dist/sweetalert2.js';
-// import Swal from 'sweetalert2';
-// import { SweetAlertOptions } from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { TYPE } from '../../shared/values.constants';
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -49,7 +46,6 @@ export class DepartmentComponent implements OnInit {
     lang: 'th',
     ImageName: '',
   };
-  //alertOpt: SweetAlertOptions = {};
 
   id: number = 1;
   ModelName: string = 'department';
@@ -63,15 +59,14 @@ export class DepartmentComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
+        
     this.myForm = this.fb.group({
       id: [''],
       departmentCode: [''],
       departmentDesc: [''],
       lang: [''],
       imageName: [''],
-    }); 
-
-    
+    });
   }
 
   get f() {
@@ -94,26 +89,18 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
-    console.clear();
 
     // console.log('Form Data', this.myForm.value);
     // console.log('Form Mode', this.FormMode);
-    if (this.FormMode === 'post') {
+    if (this.FormMode === 'post') {      
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
       this.apiService
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
-          //this.myForm.setValue(response);
-          let aa = JSON.parse(response) ;
-         // this.swalService.swalMsg(aa) ;
-          //this.swalService.alertWithSuccess();
-          //alert(aa.workstatus); 
-          
-
-
-
+          this.myForm.setValue(response);
+          this.alertWithSuccess() ;
         });
     } else {
       let PayLoad = {
@@ -122,6 +109,7 @@ export class DepartmentComponent implements OnInit {
       this.apiService
         .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
+          this.alertWithSuccess();
           //this.myForm.setValue(response);
         });
     }
@@ -155,7 +143,7 @@ export class DepartmentComponent implements OnInit {
 
   OnDelete(e: any) {
     console.log('On Form ' + e);
-    let id = e;
+    let id = e;    
     this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
       this.myForm.setValue(response);
     });
@@ -171,7 +159,34 @@ export class DepartmentComponent implements OnInit {
 
   searchDepartment() {}
 
-  
+  confirmBox() {
+    Swal.fire({
+      title: 'ท่านต้องการ ลบข้อมูลนี้ ?',
+      text: 'You will not be able to recover this file!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your imaginary file has been deleted.',
+          'success'
+        );
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
+      }
+    });
+  } 
+
+  simpleAlert(){
+    Swal.fire('Hello world!');
+  }
+   
+  alertWithSuccess(){
+    Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+  }
 
   // openFormModal() {
   //   this.formModal.show();
