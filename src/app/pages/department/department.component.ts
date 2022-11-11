@@ -126,8 +126,11 @@ export class DepartmentComponent implements OnInit {
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
       //this.departmentModel = response;
       console.log('res', response);
-      //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
-      this.myForm.setValue(response);
+
+      this.myForm.get('departmentCode').setValue(response.departmentCode);
+      this.myForm.get('departmentDesc').setValue(response.departmentDesc);
+      this.myForm.get('lang').setValue(response.lang);
+      // this.myForm.setValue(response);
 
       //this.myForm.get('Mode').setValue('patch');
     });
