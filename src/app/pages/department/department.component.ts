@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
 
-
 import Swal from 'sweetalert2';
 
 import { TYPE } from '../../shared/values.constants';
@@ -60,7 +59,6 @@ export class DepartmentComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
-        
     this.myForm = this.fb.group({
       id: [''],
       departmentCode: [''],
@@ -91,31 +89,28 @@ export class DepartmentComponent implements OnInit {
       alert('Cannot Submit');
       return;
     }
-   
-    if (this.FormMode === 'post') {      
+
+    if (this.FormMode === 'post') {
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
       this.apiService
         .create(this.ModelName, PayLoad)
         .subscribe((response: any) => {
-          this.alertWithSuccess() ;
-          
-          
+          this.alertWithSuccess();
         });
-    } 
-    
+    }
+
     if (this.FormMode === 'patch') {
       let PayLoad = {
         dataPayload: this.myForm.value,
       };
-    // alert('Update')
+      // alert('Update')
       this.apiService
         .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
-         // alert('Success Update');
+          // alert('Success Update');
           this.alertWithSuccess();
-          
         });
     }
     //this.apiService.create(payload)
@@ -129,8 +124,8 @@ export class DepartmentComponent implements OnInit {
   getByID(id) {
     console.clear();
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
-       //this.departmentModel = response;
-      //console.log('res',response[0].departmentDesc) ;
+      //this.departmentModel = response;
+      console.log('res', response);
       //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
       this.myForm.setValue(response);
 
@@ -148,7 +143,7 @@ export class DepartmentComponent implements OnInit {
 
   OnDelete(e: any) {
     console.log('On Form ' + e);
-    let id = e;    
+    let id = e;
     this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
       this.myForm.setValue(response);
     });
@@ -183,14 +178,14 @@ export class DepartmentComponent implements OnInit {
         Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
       }
     });
-  } 
+  }
 
-  simpleAlert(){
+  simpleAlert() {
     Swal.fire('Hello world!');
   }
-   
-  alertWithSuccess(){
-    Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+
+  alertWithSuccess() {
+    Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
   }
 
   // openFormModal() {
