@@ -130,6 +130,7 @@ export class DepartmentComponent implements OnInit {
       this.myForm.get('departmentCode').setValue(response.departmentCode);
       this.myForm.get('departmentDesc').setValue(response.departmentDesc);
       this.myForm.get('lang').setValue(response.lang);
+
       // this.myForm.setValue(response);
 
       //this.myForm.get('Mode').setValue('patch');
