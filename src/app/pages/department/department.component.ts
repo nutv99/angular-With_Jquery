@@ -35,7 +35,7 @@ export class DepartmentComponent implements OnInit {
   varmodelTable: modelTable = {
     apiTable: 'department',
     Caption: 'แผนกสินค้า',
-    headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
+    headerColTable: ['', '', '', ''],
     ParentTableList: [],
   };
   // Initial Form Model VAR & Value
@@ -59,14 +59,25 @@ export class DepartmentComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
-    this.myForm = this.fb.group({
+    /*this.myForm = this.fb.group({
       id: [''],
       departmentCode: [''],
       departmentDesc: [''],
       lang: [''],
       imageName: [''],
     });
-    //this.alertWithSuccess() ;
+	*/
+
+    this.myForm = this.fb.group({
+      id: ['', Validators.required],
+      shopID: ['', Validators.required],
+      departmentCode: ['', Validators.required],
+      code2: ['', Validators.required],
+      departmentDesc: ['', Validators.required],
+      lang: ['', Validators.required],
+      imageName: ['', Validators.required],
+      faIcon: ['', Validators.required],
+    });
   }
 
   get f() {
@@ -127,11 +138,14 @@ export class DepartmentComponent implements OnInit {
       //this.departmentModel = response;
       console.log('res', response);
 
+      this.myForm.get('id').setValue(response.id);
+      this.myForm.get('shopID').setValue(response.shopID);
       this.myForm.get('departmentCode').setValue(response.departmentCode);
+      this.myForm.get('code2').setValue(response.code2);
       this.myForm.get('departmentDesc').setValue(response.departmentDesc);
       this.myForm.get('lang').setValue(response.lang);
-
-      // this.myForm.setValue(response);
+      this.myForm.get('imageName').setValue(response.imageName);
+      this.myForm.get('faIcon').setValue(response.faIcon);
 
       //this.myForm.get('Mode').setValue('patch');
     });
