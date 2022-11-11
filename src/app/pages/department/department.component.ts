@@ -68,7 +68,7 @@ export class DepartmentComponent implements OnInit {
       lang: [''],
       imageName: [''],
     });
-    this.alertWithSuccess() ;
+    //this.alertWithSuccess() ;
   }
 
   get f() {
@@ -129,7 +129,7 @@ export class DepartmentComponent implements OnInit {
   getByID(id) {
     console.clear();
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
-      // this.departmentModel = response;
+       //this.departmentModel = response;
       //console.log('res',response[0].departmentDesc) ;
       //this.myForm.get('departmentDesc').setValue(response[0].departmentDesc);
       this.myForm.setValue(response);
