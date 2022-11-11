@@ -11,17 +11,12 @@
     </div>
     <div class="modal-body">
       ...
-      <div class="mb-3">  
+      <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label" style=""
           >ID</label
         >
         <input type="hidden" class="form-control" formControlName="id" />
-        <span
-          class="text-danger"
-          *ngIf="f.departmentDesc.touched && f.departmentDesc.errors?.required"
-        >
-          Deparemtn Name is required
-        </span>
+        <span class="text-danger"> Deparemtn Name is required </span>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label" style=""
