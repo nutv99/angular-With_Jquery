@@ -28,54 +28,6 @@
 </div>
 <span class="text-danger" 
 *ngIf="f.shopID.touched && f.shopID.errors?.required"> กรุณาป้อนค่า shopID </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          รหัสแผนก
-     </label>
-     <input type="text" class="form-control" formControlName="departmentCode" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.departmentCode.touched && f.departmentCode.errors?.required"> กรุณาป้อนค่า รหัสแผนก </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          code2
-     </label>
-     <input type="text" class="form-control" formControlName="code2" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.code2.touched && f.code2.errors?.required"> กรุณาป้อนค่า code2 </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          ชื่อแผนก
-     </label>
-     <input type="text" class="form-control" formControlName="departmentDesc" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.departmentDesc.touched && f.departmentDesc.errors?.required"> กรุณาป้อนค่า ชื่อแผนก </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          ภาษา
-     </label>
-     <input type="text" class="form-control" formControlName="lang" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.lang.touched && f.lang.errors?.required"> กรุณาป้อนค่า ภาษา </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          imageName
-     </label>
-     <input type="text" class="form-control" formControlName="imageName" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.imageName.touched && f.imageName.errors?.required"> กรุณาป้อนค่า imageName </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
-          faIcon
-     </label>
-     <input type="text" class="form-control" formControlName="faIcon" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.faIcon.touched && f.faIcon.errors?.required"> กรุณาป้อนค่า faIcon </span>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="closeForm()">

@@ -70,13 +70,7 @@ export class DepartmentComponent implements OnInit {
 
     this.myForm = this.fb.group({
       id: ['', Validators.required],
-      shopID: ['', Validators.required],
-      departmentCode: ['', Validators.required],
-      code2: ['', Validators.required],
-      departmentDesc: ['', Validators.required],
-      lang: ['', Validators.required],
-      imageName: ['', Validators.required],
-      faIcon: ['', Validators.required],
+      shopID: [''],
     });
   }
 
@@ -140,12 +134,6 @@ export class DepartmentComponent implements OnInit {
 
       this.myForm.get('id').setValue(response.id);
       this.myForm.get('shopID').setValue(response.shopID);
-      this.myForm.get('departmentCode').setValue(response.departmentCode);
-      this.myForm.get('code2').setValue(response.code2);
-      this.myForm.get('departmentDesc').setValue(response.departmentDesc);
-      this.myForm.get('lang').setValue(response.lang);
-      this.myForm.get('imageName').setValue(response.imageName);
-      this.myForm.get('faIcon').setValue(response.faIcon);
 
       //this.myForm.get('Mode').setValue('patch');
     });
