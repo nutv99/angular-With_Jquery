@@ -126,6 +126,12 @@ export class DepartmentComponent implements OnInit {
     this.stageCrud = true;
   }
 
+  newForm() {
+    console.clear();
+    this.myForm.get('id').setValue('');
+    this.myForm.get('shopID').setValue('');
+  }
+
   getByID(id) {
     console.clear();
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
