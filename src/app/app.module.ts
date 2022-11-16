@@ -12,6 +12,7 @@ import { HelloComponent } from './hello.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { GroupItemComponent } from './pages/groupitem/group-item.component';
+import { TableDocumentComponent } from './pages/table-document/table-document.component';
 
 import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
@@ -19,8 +20,6 @@ import { OutSelect } from './shared/components/outselect/outselect.component';
 import { CallAPIDirective } from './shared/directives/call-api.directive';
 
 import { CrudComponent } from './pages/crud/crud.component';
-
-import { Tbl_documentComponent } from './pages/tbl-document/tbl-document.component';
 
 // ใส่ใน Declaration
 
@@ -31,9 +30,9 @@ const appRoutes: Routes = [
   { path: 'department/edit/:id', component: DepartmentComponent },
   { path: 'category/1', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
+  { path: 'tbldocument', component: TableDocumentComponent },
+  { path: 'tbldocument/:id', component: TableDocumentComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
-  { path: 'tbldocument', component: Tbl_documentComponent },
-  { path: 'tbldocument/:id', component: Tbl_documentComponent },
 ];
 
 @NgModule({
@@ -54,13 +53,13 @@ const appRoutes: Routes = [
     Tabledata1Component,
     HelloComponent,
     DepartmentComponent,
-    Tbl_documentComponent,
+    TableDocumentComponent,
     Tabledata2Component,
     SearchselectComponent,
     GroupItemComponent,
     OutSelect,
     CallAPIDirective,
-    
+
     CrudComponent,
   ],
   bootstrap: [AppComponent],
