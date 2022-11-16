@@ -48,8 +48,17 @@ p {
 .ulmenu {
   font-size: 14px;
 }
+
 .headermenu {
   font-size: 18px;
+  color: white;
+}
+
+.sidemenuCaption {
+  display:flex;
+  margin-top: 10px;
+  align-items:center;background:lightgray;padding:5px;border-radius:4px 4px 0px 0px;
+
 }
 .collapsedHeight {
   transition: transform 0.5s ease-out;
@@ -99,4 +108,15 @@ p {
 }
 .ml10 {
   margin-left: 10px;
+}
+
+.ulmenu {
+  font-size: 16px;
+  border: 1px solid lightgray;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 0px 0px 6px 6px;
+}
+.text-danger {
+  font-size: 12px;
 }
