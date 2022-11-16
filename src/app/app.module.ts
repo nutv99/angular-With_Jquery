@@ -16,11 +16,13 @@ import { GroupItemComponent } from './pages/groupitem/group-item.component';
 import { Tabledata2Component } from './shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from './shared/components/searchselect/searchselect.component';
 import { OutSelect } from './shared/components/outselect/outselect.component';
-import { CallAPIDirective } from './shared/directives/call-api.directive'; 
-
+import { CallAPIDirective } from './shared/directives/call-api.directive';
 
 import { CrudComponent } from './pages/crud/crud.component';
 
+import { Tbl_documentComponent } from './pages/tbl-document/tbl-document.component';
+
+// ใส่ใน Declaration
 
 const appRoutes: Routes = [
   { path: 'crud/:pageid/:pageno', component: CrudComponent },
@@ -30,6 +32,8 @@ const appRoutes: Routes = [
   { path: 'category/1', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: 'tbl_document', component: Tbl_documentComponent },
+  { path: 'tbl_document/:id', component: Tbl_documentComponent },
 ];
 
 @NgModule({
@@ -39,7 +43,7 @@ const appRoutes: Routes = [
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only set true
@@ -55,8 +59,8 @@ const appRoutes: Routes = [
     GroupItemComponent,
     OutSelect,
     CallAPIDirective,
-    
-    
+    Tbl_documentComponent,
+
     CrudComponent,
   ],
   bootstrap: [AppComponent],

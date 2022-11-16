@@ -43,7 +43,13 @@ export class AppComponent {
           name: 'groupItem',
           linkTo: 'group/1',
           caption: 'กลุ่มสินค้า',
+        },        
+        {
+          name: 'tbl_document',
+          linkTo: 'tbl_document',
+          caption: 'tbl_document'
         },
+
       ],
     },
     {
@@ -110,7 +116,9 @@ export class AppComponent {
     //$('#testdiv').toggleClass('collapsed') ;
     //$('#testdiv').toggleClass('collapsed');
     $('#sidemenu').toggleClass('nodisplay');
-    $('#workarea').toggleClass('col-sm-12');
+    $('#workarea').toggleClass('col-sm-12 ml10');
+    //$('#workarea').addClass('ml10');
+
     //workarea
 
     // document.querySelector('button').addEventListener('click', () => { document.querySelector('.collapsible').classList.toggle('collapsed');});

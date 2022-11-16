@@ -16,7 +16,7 @@ body,
   flex-direction: row;
   /* background-color: darkblue;  */
   /* background-color: #1565c0; */
-  background-color: #01579b ;
+  background-color: #01579b;
   height: 100px;
   width: 100%;
   padding: 10px;
@@ -96,4 +96,7 @@ p {
 .container,
 .row {
   width: 100% !important;
+}
+.ml10 {
+  margin-left: 10px;
 }
