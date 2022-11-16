@@ -33,6 +33,11 @@ const appRoutes: Routes = [
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
+  {
+    path: 'contact',
+    component: TableDocumentComponent,
+    outlet: 'popup'
+  },  
 ];
 
 @NgModule({
