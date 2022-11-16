@@ -46,8 +46,8 @@ export class AppComponent {
         },        
         {
           name: 'tbl_document',
-          linkTo: 'tbl_document',
-          caption: 'tbl_document'
+          linkTo: 'tbl_document/1',
+          caption: 'เอกสาร'
         },
 
       ],

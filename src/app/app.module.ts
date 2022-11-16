@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'group/1', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
   { path: 'tbl_document', component: Tbl_documentComponent },
-  { path: 'tbl_document/:id', component: Tbl_documentComponent },
+  { path: 'tbl_document/1', component: Tbl_documentComponent },
 ];
 
 @NgModule({
@@ -60,7 +60,6 @@ const appRoutes: Routes = [
     OutSelect,
     CallAPIDirective,
     Tbl_documentComponent,
-
     CrudComponent,
   ],
   bootstrap: [AppComponent],
