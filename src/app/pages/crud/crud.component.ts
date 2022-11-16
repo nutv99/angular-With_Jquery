@@ -7,6 +7,7 @@ declare var window: any;
 export interface modelTable {
   apiTable: string;
   Caption: string;
+  pageno: number;
   headerColTable: string[];
   ParentTableList: string[];
 }
@@ -19,11 +20,12 @@ export interface modelTable {
 export class CrudComponent implements OnInit {
   formModal: any;
   pageid: string = '';
-  pageno: number = 1;
+  pageno: string = this._Activatedroute.snapshot.paramMap.get('pageno');
 
   varmodelTable: modelTable = {
     apiTable: 'department',
     Caption: 'แผนกสินค้า',
+    pageno: 1,
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
     ParentTableList: [],
   };
@@ -37,12 +39,18 @@ export class CrudComponent implements OnInit {
 
     if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
       this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
+      //alert(this.pageno);
+      console.log('PageID', this.pageid);
       // this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
       // this.pageno = '1';
     }
+
+    this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
+    this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
+    
     this.varmodelTable.apiTable = this.pageid;
-    console.log('PageID', this.pageid);
-    this.pageno = 1;
+    this.varmodelTable.pageno = parseInt(this.pageid);
+    //console.log('PageID', this.pageid);
   }
 }

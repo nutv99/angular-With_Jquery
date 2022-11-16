@@ -31,12 +31,17 @@ export class AppComponent {
       Child: [
         {
           name: 'Deparment',
-          linkTo: 'department/1',
+          linkTo: 'crud/department/1',
           caption: 'แผนกสินค้า',
         },
         {
           name: 'category',
-          linkTo: 'category/1',
+          linkTo: 'crud/department/2',
+          caption: 'แผนกสินค้า-2',
+        },
+        {
+          name: 'category',
+          linkTo: 'crud/department/1',
           caption: 'หมวดสินค้า',
         },
         {

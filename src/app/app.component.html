@@ -33,8 +33,7 @@
           </div>
           <div style="text-align:center;margin-bottom:20px">John Doe</div>
         </div>
-        <a class="navbar-brand" [routerLink]="[{ outlets: { popup: ['contact'] } }]" 
-        routerLinkActive="active">Contact Us</a>           
+
         <!-- Start menu 1-->
         <div (click)="HideMenu('A1')" class="sidemenuCaption">
           <h1 class="headermenu">{{ menu[0].HeadCaption }}</h1>
@@ -82,7 +81,7 @@
 
     <div id="workarea" class="col-sm-9">
       <div id="testdiv" class="myBorder collapsible" style="padding:5px">
-        <router-outlet name="popup"></router-outlet>
+        <!-- <router-outlet name="popup"></router-outlet> -->
         <router-outlet></router-outlet>
       </div>
     </div>
