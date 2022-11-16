@@ -40,16 +40,15 @@ export class AppComponent {
           caption: 'หมวดสินค้า',
         },
         {
-          name: 'groupItem',
+          name: 'groupItem88',
           linkTo: 'group/1',
-          caption: 'กลุ่มสินค้า',
-        },        
-        {
-          name: 'tbl_document',
-          linkTo: 'tbl_document/1',
-          caption: 'เอกสาร'
+          caption: 'กลุ่มสินค้า88',
         },
-
+        {
+          name: 'tbldocument',
+          linkTo: 'tbldocument/1',
+          caption: 'เอกสาร',
+        },
       ],
     },
     {

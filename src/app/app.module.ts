@@ -32,8 +32,8 @@ const appRoutes: Routes = [
   { path: 'category/1', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
-  { path: 'tbl_document', component: Tbl_documentComponent },
-  { path: 'tbl_document/1', component: Tbl_documentComponent },
+  { path: 'tbldocument', component: Tbl_documentComponent },
+  { path: 'tbldocument/:id', component: Tbl_documentComponent },
 ];
 
 @NgModule({
@@ -54,12 +54,13 @@ const appRoutes: Routes = [
     Tabledata1Component,
     HelloComponent,
     DepartmentComponent,
+    Tbl_documentComponent,
     Tabledata2Component,
     SearchselectComponent,
     GroupItemComponent,
     OutSelect,
     CallAPIDirective,
-    Tbl_documentComponent,
+    
     CrudComponent,
   ],
   bootstrap: [AppComponent],
