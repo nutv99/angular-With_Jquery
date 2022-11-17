@@ -1,6 +1,6 @@
 <p>crud works!</p>
 <h2>Department</h2>
-<button [routerLink]="['/departmentForm/new']"> เพิ่มข้อมูล</button>
+<button [routerLink]="['/departmentForm/new']">เพิ่มข้อมูล</button>
 <!-- <div class="modal-content" id="myModal">
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -13,4 +13,7 @@
   </div>
 </div> -->
 <!-- <app-searchselect></app-searchselect> -->
-<app-tabledata2 [varModelTable]="varmodelTable"></app-tabledata2>
+<app-tabledata2
+  [varModelTable]="varmodelTable"
+  (MYIDOutDelete)="OnDeleteDepartment($event)"
+></app-tabledata2>

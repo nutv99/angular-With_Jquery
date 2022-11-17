@@ -163,26 +163,26 @@ export class DepartmentComponent implements OnInit {
 
   setIDOnForm(e: any) {
     console.log('On Form ' + e);
+    alert('sss');
     this.myForm.get('id').setValue(e);
     this.FormMode = 'patch';
     this.getByID(e);
     this.setStageForm();
   }
 
-  OnDelete(e: any) {
-    alert(e.target.value);
-    console.log('On Form ' + e);
-    alert(e);
-    let id = e;
-    this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
-      this.myForm.setValue(response);
-    });
-    //alert('Delete ?' + e);
-    //this.confirmBox();
-    //return;
-    this.myForm.get('id').setValue(e);
-    this.FormMode = 'delete';
-    this.getByID(e);
+  OnDeleteDepartment(e: any) {
+    alert('e.target.value');
+    // alert(e);
+    // let id = e;
+    // this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
+    //   this.myForm.setValue(response);
+    // });
+    // //alert('Delete ?' + e);
+    // //this.confirmBox();
+    // //return;
+    // this.myForm.get('id').setValue(e);
+    // this.FormMode = 'delete';
+    // this.getByID(e);
   }
 
   saveDepartment() {}

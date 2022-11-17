@@ -61,4 +61,19 @@ export class departmentListComponent implements OnInit, OnChanges {
     this.varmodelTable.apiTable = this.pageid;
     this.varmodelTable.pageno = parseInt(this.pageid);
   }
+
+  OnDeleteDepartment(e: any) {
+    alert(e);
+
+    // let id = e;
+    // this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
+    //   this.myForm.setValue(response);
+    // });
+    // //alert('Delete ?' + e);
+    // //this.confirmBox();
+    // //return;
+    // this.myForm.get('id').setValue(e);
+    // this.FormMode = 'delete';
+    // this.getByID(e);
+  }
 }
