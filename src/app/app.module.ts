@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { Tabledata1Component } from './shared/components/tabledata1/tabledata1.component';
 import { HelloComponent } from './hello.component';
 import { DepartmentComponent } from './pages/department/department.component';
+import { departmentListComponent } from './pages/department/departmentList.component';
+
 import { CategoryComponent } from './pages/category/category.component';
 import { GroupItemComponent } from './pages/groupitem/group-item.component';
 import { TableDocumentComponent } from './pages/table-document/table-document.component';
@@ -24,8 +26,8 @@ import { CrudComponent } from './pages/crud/crud.component';
 // ใส่ใน Declaration
 
 const appRoutes: Routes = [
-  { path: 'crud/:pageid/:pageno', component: CrudComponent },
-  { path: 'department', component: DepartmentComponent },
+  { path: 'departmentList/:pageno', component: departmentListComponent },
+
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
   { path: 'category/1', component: CategoryComponent },
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     Tabledata1Component,
     HelloComponent,
     DepartmentComponent,
+    departmentListComponent,
     TableDocumentComponent,
     Tabledata2Component,
     SearchselectComponent,

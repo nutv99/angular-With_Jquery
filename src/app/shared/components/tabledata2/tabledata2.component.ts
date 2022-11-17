@@ -11,7 +11,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
 
-
 import { environment } from '../../../environment';
 
 import { Emp } from '../../../_models/emp';
@@ -24,15 +23,13 @@ import { first } from 'rxjs';
   styleUrls: ['./tabledata2.component.css'],
 })
 export class Tabledata2Component implements OnInit {
-
   @Output() MYIDOut: EventEmitter<any> = new EventEmitter();
   @Output() MYIDOutDelete: EventEmitter<any> = new EventEmitter();
   tableAPI: string;
   @Input() varModelTable;
-  
 
   pageid: string = '';
-  pageno: string = '1';
+  pageno: string = '';
 
   apiName: string = '';
   myurl: string = '';
@@ -61,19 +58,16 @@ export class Tabledata2Component implements OnInit {
     // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
     if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
-      this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
       this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
-      this.pageno = '1';
+      this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     }
     this.fetchData(this.pageno);
-  } 
-  
-  
+  }
 
   fetchData(pageno) {
     this.results = '';
-    pageno = this.varModelTable.pageno ;
+    pageno = this.varModelTable.pageno;
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
       this.varModelTable.apiTable +
@@ -90,15 +84,13 @@ export class Tabledata2Component implements OnInit {
   }
 
   setIDOut(id: number) {
-    let aa = id ;    
+    let aa = id;
     this.MYIDOut.emit(aa);
-    
   }
 
   setIDOutDelete(id: number) {
-    let aa = id ;    
+    let aa = id;
     this.MYIDOutDelete.emit(aa);
-    
   }
 
   // confirmDelete() {
