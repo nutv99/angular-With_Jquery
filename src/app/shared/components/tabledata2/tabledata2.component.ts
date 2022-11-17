@@ -93,6 +93,7 @@ export class Tabledata2Component implements OnInit {
   setIDOutDelete(id: number) {
     let aa = id;
     this.MYIDOutDelete.emit(aa);
+    
   }
 
   // confirmDelete() {

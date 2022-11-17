@@ -83,6 +83,7 @@ export class DepartmentComponent implements OnInit {
       this.myForm.get('id').setValue(id);
       if (id != 'new') {
         this.formTitle = 'แก้ไขข้อมูล';
+        this.getByID(id);
       } else {
         this.formTitle = 'เพิ่มข้อมูล';
       }
@@ -169,7 +170,9 @@ export class DepartmentComponent implements OnInit {
   }
 
   OnDelete(e: any) {
+    alert(e.target.value);
     console.log('On Form ' + e);
+    alert(e);
     let id = e;
     this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
       this.myForm.setValue(response);
