@@ -11,23 +11,40 @@
     </div>
     <div class="modal-body">
       ...
-       
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style="">
           id
-     </label>
-     <input type="text" class="form-control" formControlName="id" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.id.touched && f.id.errors?.required"> กรุณาป้อนค่า id </span>
-<div class="mb-3"> 
-     <label for="exampleFormControlInput1" class="form-label" style="">
+        </label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="id"
+          id="exampleFormControlInput1"
+          placeholder=""
+        />
+      </div>
+      <span class="text-danger" *ngIf="f.id.touched && f.id.errors?.required">
+        กรุณาป้อนค่า id
+      </span>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style="">
           shopID
-     </label>
-     <input type="text" class="form-control" formControlName="shopID" id="exampleFormControlInput1" placeholder="">
-</div>
-<span class="text-danger" 
-*ngIf="f.shopID.touched && f.shopID.errors?.required"> กรุณาป้อนค่า shopID </span>
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="shopID"
+          id="exampleFormControlInput1"
+          placeholder=""
+        />
+      </div>
+      <span
+        class="text-danger"
+        *ngIf="f.shopID.touched && f.shopID.errors?.required"
+      >
+        กรุณาป้อนค่า shopID
+      </span>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="closeForm()">
@@ -51,7 +68,7 @@
     class="btn btn-primary"
     placement="bottom"
     ngbTooltip="Delete"
-    (click)="setStageForm();newForm()"
+    (click)="setStageForm(); newForm()"
     style="margin-left:auto;margin-right:10px"
   >
     เพิ่มข้อมูล

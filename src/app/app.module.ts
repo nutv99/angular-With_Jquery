@@ -27,6 +27,7 @@ import { CrudComponent } from './pages/crud/crud.component';
 
 const appRoutes: Routes = [
   { path: 'departmentList/:pageno', component: departmentListComponent },
+  { path: 'departmentForm/:id', component: DepartmentComponent },
 
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },

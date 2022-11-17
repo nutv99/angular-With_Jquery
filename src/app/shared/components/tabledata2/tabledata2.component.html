@@ -45,16 +45,13 @@
                 >
                   <fa-icon [icon]="faEdit"></fa-icon>
                 </a> -->
-
-                <button
-                  class="btn btn-outline-success"
-                  placement="bottom"
-                  ngbTooltip="Delete"
-                  (click)="setIDOut(result[0])"
-                  style="margin-right:15px"
+                <a
+                  routerLink="/departmentForm/{{ result[0] }}"
+                  routerLinkActive="active"
+                  style="border:1px solid green;padding:10px;border-radius:6px;margin-right:10px"
                 >
                   <fa-icon [icon]="faEdit"></fa-icon>Edit
-                </button>
+                </a>
 
                 <button
                   class="btn btn-outline-danger"
@@ -97,7 +94,7 @@
               <li class="page-item">
                 <a
                   class="page-link"
-                  routerLink="/crud/department/1"
+                  routerLink="/departmentList/1"
                   routerLinkActive="active"
                   (click)="fetchData(1)"
                   >1</a
@@ -106,7 +103,7 @@
               <li class="page-item">
                 <a
                   class="page-link"
-                  routerLink="/crud/department/2"
+                  routerLink="/departmentList/2"
                   routerLinkActive="active"
                   (click)="fetchData(2)"
                   >2</a

@@ -27,6 +27,7 @@ export class Tabledata2Component implements OnInit {
   @Output() MYIDOutDelete: EventEmitter<any> = new EventEmitter();
   tableAPI: string;
   @Input() varModelTable;
+  @Input() pageno999;
 
   pageid: string = '';
   pageno: string = '';
@@ -67,13 +68,14 @@ export class Tabledata2Component implements OnInit {
 
   fetchData(pageno) {
     this.results = '';
-    pageno = this.varModelTable.pageno;
+    //pageno = this.varModelTable.pageno;
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
       this.varModelTable.apiTable +
       '/ByPageNo/' +
       pageno;
-    console.log('URL', this.myurl);
+    //console.log('URL', this.myurl);
+    //alert(this.myurl);
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);

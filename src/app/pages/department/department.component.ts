@@ -7,6 +7,7 @@ import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -52,11 +53,15 @@ export class DepartmentComponent implements OnInit {
   FormMode: string = 'post';
   formTitle: string = 'เพิ่มข้อมูล ';
 
-  stageCrud: boolean = true;
-  stageForm: boolean = false;
+  stageCrud: boolean = false;
+  stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: APIService) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: APIService,
+    private _Activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     /*this.myForm = this.fb.group({
@@ -72,6 +77,16 @@ export class DepartmentComponent implements OnInit {
       id: ['', Validators.required],
       shopID: [''],
     });
+    if (this._Activatedroute.snapshot.paramMap.get('id')) {
+      //alert(this._Activatedroute.snapshot.paramMap.get('id'));
+      let id = this._Activatedroute.snapshot.paramMap.get('id');
+      this.myForm.get('id').setValue(id);
+      if (id != 'new') {
+        this.formTitle = 'แก้ไขข้อมูล';
+      } else {
+        this.formTitle = 'เพิ่มข้อมูล';
+      }
+    }
   }
 
   get f() {
