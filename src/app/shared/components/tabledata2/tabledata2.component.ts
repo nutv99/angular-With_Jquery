@@ -67,10 +67,13 @@ export class Tabledata2Component implements OnInit {
       this.pageno = '1';
     }
     this.fetchData(this.pageno);
-  }
+  } 
+  
+  
 
   fetchData(pageno) {
     this.results = '';
+    pageno = this.varModelTable.pageno ;
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
       this.varModelTable.apiTable +

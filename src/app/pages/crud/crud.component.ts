@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
@@ -17,7 +17,7 @@ export interface modelTable {
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css'],
 })
-export class CrudComponent implements OnInit {
+export class CrudComponent implements OnInit, OnChanges {
   formModal: any;
   pageid: string = '';
   pageno: string = this._Activatedroute.snapshot.paramMap.get('pageno');
@@ -48,9 +48,17 @@ export class CrudComponent implements OnInit {
 
     this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
     this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
-    
+
     this.varmodelTable.apiTable = this.pageid;
     this.varmodelTable.pageno = parseInt(this.pageid);
     //console.log('PageID', this.pageid);
+  }
+
+  ngOnChanges() {
+    console.log('On Change');
+    this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
+
+    this.varmodelTable.apiTable = this.pageid;
+    this.varmodelTable.pageno = parseInt(this.pageid);
   }
 }

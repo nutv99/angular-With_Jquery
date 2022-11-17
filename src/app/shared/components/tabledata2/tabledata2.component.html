@@ -6,7 +6,7 @@
       <div class="row flex-between-center">
         <div class="col-md-4 d-flex align-items-center pe-0">
           <h5 class="mb-0 text-nowrap py-2 py-xl-0">
-            ตาราง {{ varModelTable.Caption }}
+            ตาราง {{ varModelTable.Caption }} หน้าที่ {{ pageno }}
           </h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
@@ -82,7 +82,7 @@
             style="margin-top:5px;margin-left:auto;margin-right:10px"
           >
             <ul class="pagination">
-              <li class="page-item" *ngFor="let pageno of Pagination">
+              <!-- <li class="page-item" *ngFor="let pageno of Pagination">
                 <a
                   class="page-link"
                   routerLink="/{{ tableAPI }}/{{ pageno }}"
@@ -90,7 +90,7 @@
                   (click)="fetchData(pageno)"
                   >{{ pageno }}</a
                 >
-              </li>
+              </li> -->
               <li class="page-item">
                 <a class="page-link" href="#">Previous</a>
               </li>
