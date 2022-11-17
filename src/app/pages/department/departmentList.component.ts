@@ -33,13 +33,9 @@ export class departmentListComponent implements OnInit, OnChanges {
   constructor(private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit() {
-    // this.formModal = new window.bootstrap.Modal(
-    //   document.getElementById('myModal')
-    // );
 
     if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
       this.pageid = this.pageid = 'Department';
-      //alert(this.pageno);
       console.log('PageID', this.pageid);
       // this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
@@ -64,13 +60,12 @@ export class departmentListComponent implements OnInit, OnChanges {
 
   OnDeleteDepartment(e: any) {
     alert(e);
-
-    // let id = e;
+    let id = e;
     // this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
     //   this.myForm.setValue(response);
     // });
-    // //alert('Delete ?' + e);
-    // //this.confirmBox();
+    // alert('Delete ?' + e);
+    //  this.confirmBox();
     // //return;
     // this.myForm.get('id').setValue(e);
     // this.FormMode = 'delete';
