@@ -81,6 +81,7 @@ export class Tabledata2Component implements OnInit {
       console.table(data.data);
       this.results = data.data;
       this.headerTable = data.HeadCol;
+      console.table(data.HeadCol);
       this.AllRec = data.totalRec;
     });
   }

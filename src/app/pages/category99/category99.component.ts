@@ -11,7 +11,6 @@ export class category99Component implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    alert('s');
     this.staffForm = this.fb.group({
       id: [''],
       shopID: [''],

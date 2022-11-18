@@ -35,11 +35,6 @@ export class AppComponent {
           caption: 'แผนกสินค้า',
         },
         {
-          name: 'ttt',
-          linkTo: '/ttt',
-          caption: 'TTT Test',
-        },
-        {
           name: 'category',
           linkTo: 'category',
           caption: 'หมวดสินค้า',

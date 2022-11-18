@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
-
 
 import { AppComponent } from './app.component';
 import { Tabledata1Component } from './shared/components/tabledata1/tabledata1.component';
@@ -31,7 +29,6 @@ import { tttComponent } from './ttt/ttt.component';
 const appRoutes: Routes = [
   { path: 'departmentList/:pageno', component: departmentListComponent },
   { path: 'departmentForm/:id', component: DepartmentComponent },
-  { path: 'ttt', component: tttComponent },
 
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
@@ -51,10 +48,10 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    
 
     RouterModule.forRoot(
       appRoutes,
@@ -75,7 +72,7 @@ const appRoutes: Routes = [
     CallAPIDirective,
     CrudComponent,
     tttComponent,
-    category99Component
+    category99Component,
   ],
   bootstrap: [AppComponent],
 })

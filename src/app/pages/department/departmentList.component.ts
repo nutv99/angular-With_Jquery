@@ -17,7 +17,6 @@ export interface modelTable {
   templateUrl: './departmentList.component.html',
   styleUrls: ['./department.component.css'],
 })
-
 export class departmentListComponent implements OnInit, OnChanges {
   formModal: any;
   pageid: string = '';
@@ -34,10 +33,10 @@ export class departmentListComponent implements OnInit, OnChanges {
   constructor(private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit() {
-
     if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
       this.pageid = this.pageid = 'Department';
       console.log('PageID', this.pageid);
+      alert(this.pageid);
       // this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
       // this.pageno = '1';
