@@ -36,7 +36,7 @@ export class AppComponent {
         },        
         {
           name: 'category',
-          linkTo: 'crud/department/1',
+          linkTo: 'category',
           caption: 'หมวดสินค้า',
         },
         {

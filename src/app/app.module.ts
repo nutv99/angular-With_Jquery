@@ -31,7 +31,7 @@ const appRoutes: Routes = [
 
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
-  { path: 'category/1', component: CategoryComponent },
+  { path: 'category', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
