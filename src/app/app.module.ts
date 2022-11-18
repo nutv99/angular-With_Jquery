@@ -12,7 +12,7 @@ import { HelloComponent } from './hello.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { departmentListComponent } from './pages/department/departmentList.component';
 
-import { CategoryComponent } from './pages/category/category.component';
+import { category99Component } from './pages/category99/category99.component';
 import { GroupItemComponent } from './pages/groupitem/group-item.component';
 import { TableDocumentComponent } from './pages/table-document/table-document.component';
 
@@ -31,7 +31,7 @@ const appRoutes: Routes = [
 
   { path: 'department/:id', component: DepartmentComponent },
   { path: 'department/edit/:id', component: DepartmentComponent },
-  { path: 'category', component: CategoryComponent },
+  { path: 'category', component: category99Component },
   { path: 'group/1', component: GroupItemComponent },
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
