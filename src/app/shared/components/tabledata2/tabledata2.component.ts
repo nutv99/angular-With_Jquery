@@ -70,12 +70,11 @@ export class Tabledata2Component implements OnInit {
     this.results = '';
     //pageno = this.varModelTable.pageno;
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
-      this.varModelTable.apiTable +
-      '/ByPageNo/' +
-      pageno;
-    //console.log('URL', this.myurl);
-    //alert(this.myurl);
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' + this.varModelTable.apiTable +'/ByPageNo/' +pageno;
+
+      this.myurl =
+      environment.apiUrl + this.varModelTable.apiTable +'/ByPageNo/' +pageno;  
+    
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
