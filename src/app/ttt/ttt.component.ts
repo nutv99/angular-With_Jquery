@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 @Component({
-  selector: 'app-category99',
-  templateUrl: './category99.component.html',
-  styleUrls: ['./category99.component.css'],
+  selector: 'app-ttt',
+  templateUrl: './ttt.component.html',
+  styleUrls: ['./ttt.component.css'],
 })
-export class category99Component implements OnInit {
+export class tttComponent implements OnInit {
   staffForm!: FormGroup;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    alert('s');
     this.staffForm = this.fb.group({
       id: [''],
       shopID: [''],
