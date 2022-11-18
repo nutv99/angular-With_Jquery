@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'departmentList/:pageno', component: departmentListComponent },
   { path: 'departmentForm/:id', component: DepartmentComponent },
   { path: 'category/:pageno', component: categoryListComponent },
+  { path: 'categoryForm/:id', component: CategoryComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
