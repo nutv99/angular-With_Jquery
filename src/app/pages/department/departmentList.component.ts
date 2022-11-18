@@ -17,6 +17,7 @@ export interface modelTable {
   templateUrl: './departmentList.component.html',
   styleUrls: ['./department.component.css'],
 })
+
 export class departmentListComponent implements OnInit, OnChanges {
   formModal: any;
   pageid: string = '';

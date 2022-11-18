@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
@@ -21,6 +21,7 @@ declare var window: any;
 export interface modelTable {
   apiTable: string;
   Caption: string;
+  pageno: number;
   headerColTable: string[];
   ParentTableList: string[];
 }
@@ -35,14 +36,12 @@ export class CategoryComponent implements OnInit {
   varmodelTable: modelTable = {
     apiTable: 'category',
     Caption: 'หมวดสินค้า',
+    pageno: 1,
     headerColTable: ['', '', '', ''],
     ParentTableList: [],
   };
   // Initial Form Model VAR & Value
-  categoryModel: full_categoryModel = {
-    id: 2
-
-  };
+  categoryModel: full_categoryModel;
 
   id: number = 1;
   ModelName: string = 'category';
@@ -51,27 +50,20 @@ export class CategoryComponent implements OnInit {
 
   stageCrud: boolean = true;
   stageForm: boolean = false;
-  myForm: FormGroup;
+  myForm99: FormGroup;
 
   constructor(private fb: FormBuilder, private apiService: APIService) {}
 
   ngOnInit() {
-    /*this.myForm = this.fb.group({
-      id: [''],
-      categoryCode: [''],
-      categoryDesc: [''],
+    this.myForm99 = this.fb.group({
       lang: [''],
+      categoryDesc: [''],
       imageName: [''],
     });
-	*/
-	
-this.myForm = this.fb.group({
-lang : ['',Validators.required],categoryDesc : ['',Validators.required],imageName : ['',Validators.required]});
-
   }
 
   get f() {
-    return this.myForm.controls;
+    return this.myForm99.controls;
   }
 
   setStageForm() {
@@ -86,32 +78,29 @@ lang : ['',Validators.required],categoryDesc : ['',Validators.required],imageNam
 
   onSubmit() {
     //this.registerForm.valid
-    if (this.myForm.invalid) {
+    if (this.myForm99.invalid) {
       alert('Cannot Submit');
       return;
     }
 
     if (this.FormMode === 'post') {
       let PayLoad = {
-        dataPayload: this.myForm.value,
+        dataPayload: this.myForm99.value,
       };
       this.apiService
         .create(this.ModelName, PayLoad)
-        .subscribe((response: any) => {
-          this.alertWithSuccess();
-        });
+        .subscribe((response: any) => {});
     }
 
     if (this.FormMode === 'patch') {
       let PayLoad = {
-        dataPayload: this.myForm.value,
+        dataPayload: this.myForm99.value,
       };
       // alert('Update')
       this.apiService
         .update999(this.ModelName, PayLoad)
         .subscribe((response: any) => {
           // alert('Success Update');
-          this.alertWithSuccess();
         });
     }
     //this.apiService.create(payload)
@@ -121,90 +110,4 @@ lang : ['',Validators.required],categoryDesc : ['',Validators.required],imageNam
     this.stageForm = false;
     this.stageCrud = true;
   }
-
-  newForm() {
-    console.clear();
-
-    this.myForm.get('lang').setValue('');
-this.myForm.get('categoryDesc').setValue('');
-this.myForm.get('imageName').setValue('');
-
-
-  }
-
-  getByID(id) {
-    console.clear();
-    this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
-      //this.categoryModel = response;
-      console.log('res', response);
-
-      this.myForm.get('lang').setValue(response.lang);this.myForm.get('categoryDesc').setValue(response.categoryDesc);this.myForm.get('imageName').setValue(response.imageName);
-
-
-      //this.myForm.get('Mode').setValue('patch');
-    });
-  }
-
-  setIDOnForm(e: any) {
-    console.log('On Form ' + e);
-    this.myForm.get('id').setValue(e);
-    this.FormMode = 'patch';
-    this.getByID(e);
-    this.setStageForm();
-  }
-
-  OnDelete(e: any) {
-    console.log('On Form ' + e);
-    let id = e;
-    this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
-      this.myForm.setValue(response);
-    });
-    //alert('Delete ?' + e);
-    //this.confirmBox();
-    //return;
-    this.myForm.get('id').setValue(e);
-    this.FormMode = 'delete';
-    this.getByID(e);
-  }
-
-  saveCategory() {}
-
-  searchCategory() {}
-
-  confirmBox() {
-    Swal.fire({
-      title: 'ท่านต้องการ ลบข้อมูลนี้ ?',
-      text: 'You will not be able to recover this file!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'Your imaginary file has been deleted.',
-          'success'
-        );
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
-      }
-    });
-  }
-
-  simpleAlert() {
-    Swal.fire('Hello world!');
-  }
-
-  alertWithSuccess() {
-    Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
-  }
-
-  // openFormModal() {
-  //   this.formModal.show();
-  // }
-  // saveSomeThing() {
-  //   // confirm or save something
-  //   this.formModal.hide();
-  // }
 }
