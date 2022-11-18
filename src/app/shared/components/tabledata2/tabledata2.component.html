@@ -10,7 +10,7 @@
           </h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
-          <h6> รายการ : {{ results.length }}/{{ AllRec }}</h6>
+          <h6>รายการ : {{ results.length }}/{{ AllRec }}</h6>
         </div>
       </div>
     </div>
@@ -25,6 +25,12 @@
 
           <tbody style="font-size:14px">
             <tr *ngFor="let result of results" style="vertical-align: middle;">
+              <td
+                *ngFor="let result of results[0]"
+                style="vertical-align: middle;"
+              >
+                {{ result }}
+              </td>
               <td>{{ result[1] }}</td>
               <td>{{ result[3] }}</td>
               <td>{{ result[2] }}</td>
@@ -38,7 +44,7 @@
               </td>
               <td class="white-space-nowrap" style="text-align:center">
                 <a
-                  routerLink="/{{varModelTable.apiTable}}Form/{{ result[0] }}"
+                  routerLink="/{{ varModelTable.apiTable }}Form/{{ result[0] }}"
                   routerLinkActive="active"
                   style="border:1px solid green;padding:10px;border-radius:6px;margin-right:10px"
                 >

@@ -9,6 +9,7 @@ export interface modelTable {
   Caption: string;
   pageno: number;
   headerColTable: string[];
+  dataColTable:number[],    
   ParentTableList: string[];
 }
 
@@ -27,6 +28,7 @@ export class departmentListComponent implements OnInit, OnChanges {
     Caption: 'แผนกสินค้า',
     pageno: 1,
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
+    dataColTable:[0,1,2,3,5],    
     ParentTableList: [],
   };
 

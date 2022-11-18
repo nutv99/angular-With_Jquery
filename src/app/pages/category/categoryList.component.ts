@@ -9,6 +9,7 @@ export interface modelTable {
   Caption: string;
   pageno: number;
   headerColTable: string[];
+  dataColTable: number[];
   ParentTableList: string[];
 }
 
@@ -31,19 +32,9 @@ export class categoryListComponent implements OnInit, OnChanges {
       'ชื่อหมวด',
       'รหัส-2',
       'รูป',
-      'รหัสหมวด',
-      'ชื่อหมวด',
-      'รหัส-2',
-      'รูป',
-      'รหัสหมวด',
-      'ชื่อหมวด',
-      'รหัส-2',
-      'รูป',
-      'รหัสหมวด',
-      'ชื่อหมวด',
-      'รหัส-2',
-      'รูป',
+      'รหัสหมวด'      
     ],
+    dataColTable:[0,1,2,3,5],    
     ParentTableList: [],
   };
 
