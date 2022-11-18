@@ -33,10 +33,10 @@ export class AppComponent {
           name: 'Deparment',
           linkTo: '/departmentList/1',
           caption: 'แผนกสินค้า',
-        },
+        },        
         {
           name: 'category',
-          linkTo: 'category',
+          linkTo: 'category/1',
           caption: 'หมวดสินค้า',
         },
         {

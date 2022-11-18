@@ -22,10 +22,11 @@
               <th *ngFor="let txt of headerTable">{{ txt }}</th>
             </tr>
           </thead>
+
           <tbody style="font-size:14px">
             <tr *ngFor="let result of results" style="vertical-align: middle;">
-              <td>{{ result[2] }}</td>
-              <td>{{ result[4] }}</td>
+              <td>{{ result[1] }}</td>
+              <td>{{ result[3] }}</td>
               <td>{{ result[2] }}</td>
               <td>
                 <img
@@ -36,15 +37,6 @@
                 />
               </td>
               <td class="white-space-nowrap" style="text-align:center">
-                <!-- <a
-                  class="btn btn-outline-success"
-                  placement="bottom"
-                  ngbTooltip="Edit"
-                  style="margin-right:10px"
-                  href="{{ varModelTable.apiTable }}/edit/{{ result[0] }}"
-                >
-                  <fa-icon [icon]="faEdit"></fa-icon>
-                </a> -->
                 <a
                   routerLink="/departmentForm/{{ result[0] }}"
                   routerLinkActive="active"
@@ -59,7 +51,6 @@
                   ngbTooltip="Delete"
                   (click)="setIDOutDelete(result[0])"
                 >
-                  <!-- <i class="bi bi-trash"></i> -->
                   <fa-icon [icon]="faDeleteLeft"></fa-icon>
                 </button>
               </td>

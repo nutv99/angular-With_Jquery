@@ -12,7 +12,9 @@ import { HelloComponent } from './hello.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { departmentListComponent } from './pages/department/departmentList.component';
 
-import { category99Component } from './pages/category99/category99.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { categoryListComponent } from './pages/category/categoryList.component';
+
 import { GroupItemComponent } from './pages/groupitem/group-item.component';
 import { TableDocumentComponent } from './pages/table-document/table-document.component';
 
@@ -29,10 +31,7 @@ import { tttComponent } from './ttt/ttt.component';
 const appRoutes: Routes = [
   { path: 'departmentList/:pageno', component: departmentListComponent },
   { path: 'departmentForm/:id', component: DepartmentComponent },
-
-  { path: 'department/:id', component: DepartmentComponent },
-  { path: 'department/edit/:id', component: DepartmentComponent },
-  { path: 'category', component: category99Component },
+  { path: 'category/:pageno', component: categoryListComponent },
   { path: 'group/1', component: GroupItemComponent },
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
@@ -72,7 +71,8 @@ const appRoutes: Routes = [
     CallAPIDirective,
     CrudComponent,
     tttComponent,
-    category99Component,
+    CategoryComponent,
+    categoryListComponent
   ],
   bootstrap: [AppComponent],
 })
