@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
-
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
-import { DepartmentModel } from '../../_models/department';
+import { full_departmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
@@ -31,6 +30,9 @@ export interface modelTable {
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
 })
+
+
+
 export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -40,44 +42,29 @@ export class DepartmentComponent implements OnInit {
     ParentTableList: [],
   };
   // Initial Form Model VAR & Value
-  departmentModel: DepartmentModel = {
-    id: 2,
-    departmentCode: 'A1',
-    departmentDesc: 'แผนก....',
-    lang: 'th',
-    ImageName: '',
+  departmentModel: full_departmentModel = {
+    id: 2
+
   };
 
   id: number = 1;
   ModelName: string = 'department';
   FormMode: string = 'post';
-  formTitle: string = 'เพิ่มข้อมูล ';
+  formTitle: string = 'เพิ่มข้อมูล-แผนกสินค้า ';
 
-  stageCrud: boolean = false;
+  stageCrud: boolean = true;
   stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private apiService: APIService,
-    private _Activatedroute: ActivatedRoute
-  ) {}
+  constructor(private fb: FormBuilder, private apiService: APIService,private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit() {
-    /*this.myForm = this.fb.group({
-      id: [''],
-      departmentCode: [''],
-      departmentDesc: [''],
-      lang: [''],
-      imageName: [''],
-    });
-	*/
 
-    this.myForm = this.fb.group({
-      id: ['', Validators.required],
-      shopID: [''],
-    });
-    if (this._Activatedroute.snapshot.paramMap.get('id')) {
+	
+this.myForm = this.fb.group({
+id : ['',Validators.required],departmentCode : ['',Validators.required],departmentDesc : ['',Validators.required],imageName : ['',Validators.required]});
+
+	if (this._Activatedroute.snapshot.paramMap.get('id')) {
       //alert(this._Activatedroute.snapshot.paramMap.get('id'));
       let id = this._Activatedroute.snapshot.paramMap.get('id');
       this.myForm.get('id').setValue(id);
@@ -88,6 +75,7 @@ export class DepartmentComponent implements OnInit {
         this.formTitle = 'เพิ่มข้อมูล';
       }
     }
+
   }
 
   get f() {
@@ -144,8 +132,13 @@ export class DepartmentComponent implements OnInit {
 
   newForm() {
     console.clear();
+
     this.myForm.get('id').setValue('');
-    this.myForm.get('shopID').setValue('');
+this.myForm.get('departmentCode').setValue('');
+this.myForm.get('departmentDesc').setValue('');
+this.myForm.get('imageName').setValue('');
+
+
   }
 
   getByID(id) {
@@ -154,8 +147,8 @@ export class DepartmentComponent implements OnInit {
       //this.departmentModel = response;
       console.log('res', response);
 
-      this.myForm.get('id').setValue(response.id);
-      this.myForm.get('shopID').setValue(response.shopID);
+      this.myForm.get('id').setValue(response.id);this.myForm.get('departmentCode').setValue(response.departmentCode);this.myForm.get('departmentDesc').setValue(response.departmentDesc);this.myForm.get('imageName').setValue(response.imageName);
+
 
       //this.myForm.get('Mode').setValue('patch');
     });
@@ -163,26 +156,24 @@ export class DepartmentComponent implements OnInit {
 
   setIDOnForm(e: any) {
     console.log('On Form ' + e);
-    alert('sss');
     this.myForm.get('id').setValue(e);
     this.FormMode = 'patch';
     this.getByID(e);
     this.setStageForm();
   }
 
-  OnDeleteDepartment(e: any) {
-    alert('e.target.value');
-    // alert(e);
-    // let id = e;
-    // this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
-    //   this.myForm.setValue(response);
-    // });
-    // //alert('Delete ?' + e);
-    // //this.confirmBox();
-    // //return;
-    // this.myForm.get('id').setValue(e);
-    // this.FormMode = 'delete';
-    // this.getByID(e);
+  OnDelete(e: any) {
+    console.log('On Form ' + e);
+    let id = e;
+    this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
+      this.myForm.setValue(response);
+    });
+    //alert('Delete ?' + e);
+    //this.confirmBox();
+    //return;
+    this.myForm.get('id').setValue(e);
+    this.FormMode = 'delete';
+    this.getByID(e);
   }
 
   saveDepartment() {}

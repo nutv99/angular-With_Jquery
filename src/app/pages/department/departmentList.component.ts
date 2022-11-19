@@ -9,7 +9,6 @@ export interface modelTable {
   Caption: string;
   pageno: number;
   headerColTable: string[];
-  dataColTable:number[],    
   ParentTableList: string[];
 }
 
@@ -28,17 +27,16 @@ export class departmentListComponent implements OnInit, OnChanges {
     Caption: 'แผนกสินค้า',
     pageno: 1,
     headerColTable: ['รหัสแผนก', 'ชื่อแผนก', 'รหัส-2', 'รูป'],
-    dataColTable:[0,1,2,3,5],    
     ParentTableList: [],
   };
 
   constructor(private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit() {
+
     if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
       this.pageid = this.pageid = 'Department';
       console.log('PageID', this.pageid);
-      alert(this.pageid);
       // this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
       // this.pageno = '1';
@@ -47,7 +45,7 @@ export class departmentListComponent implements OnInit, OnChanges {
     this.pageid = 'Department';
     this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
 
-    this.varmodelTable.apiTable = this.pageid;
+    //this.varmodelTable.apiTable = this.pageid;
     this.varmodelTable.pageno = parseInt(this.pageno);
     //console.log('PageID', this.pageid);
   }
@@ -56,21 +54,22 @@ export class departmentListComponent implements OnInit, OnChanges {
     console.log('On Change');
     this.pageid = this._Activatedroute.snapshot.paramMap.get('pageid');
 
-    this.varmodelTable.apiTable = this.pageid;
+    //this.varmodelTable.apiTable = this.pageid;
     this.varmodelTable.pageno = parseInt(this.pageid);
   }
 
   OnDeleteDepartment(e: any) {
     alert(e);
-    let id = e;
-    // this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
-    //   this.myForm.setValue(response);
-    // });
-    // alert('Delete ?' + e);
-    //  this.confirmBox();
-    // //return;
-    // this.myForm.get('id').setValue(e);
-    // this.FormMode = 'delete';
-    // this.getByID(e);
+    /*let id = e;
+    this.apiService.delete999(this.ModelName, id).subscribe((response: any) => {
+      this.myForm.setValue(response);
+    });
+    alert('Delete ?' + e);
+     this.confirmBox();
+    //return;
+    this.myForm.get('id').setValue(e);
+    this.FormMode = 'delete';
+    this.getByID(e);
+	*/
   }
 }
