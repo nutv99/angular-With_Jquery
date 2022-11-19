@@ -30,6 +30,9 @@ export interface modelTable {
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css'],
 })
+
+
+
 export class CategoryComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -40,7 +43,8 @@ export class CategoryComponent implements OnInit {
   };
   // Initial Form Model VAR & Value
   categoryModel: full_categoryModel = {
-    id: 2,
+    id: 2
+
   };
 
   id: number = 1;
@@ -48,34 +52,19 @@ export class CategoryComponent implements OnInit {
   FormMode: string = 'post';
   formTitle: string = 'เพิ่มข้อมูล-หมวดสินค้า ';
 
-  stageCrud: boolean = false;
+  stageCrud: boolean = true;
   stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private apiService: APIService,
-    private _Activatedroute: ActivatedRoute
-  ) {}
+  constructor(private fb: FormBuilder, private apiService: APIService,private _Activatedroute: ActivatedRoute) {}
 
   ngOnInit() {
-    /*this.myForm = this.fb.group({
-      id: [''],
-      categoryCode: [''],
-      categoryDesc: [''],
-      lang: [''],
-      imageName: [''],
-    });
-	*/
 
-    this.myForm = this.fb.group({
-      id: ['', Validators.required],
-      lang: ['', Validators.required],
-      categoryDesc: ['', Validators.required],
-      imageName: ['', Validators.required],
-    });
+	
+this.myForm = this.fb.group({
+id : ['',Validators.required],categorycode : ['',Validators.required],lang : ['',Validators.required],categoryDesc : ['',Validators.required],imageName : ['',Validators.required],grandParentCode : ['',Validators.required],departmentID : ['',Validators.required],TotalProduct : ['',Validators.required]});
 
-    if (this._Activatedroute.snapshot.paramMap.get('id')) {
+	if (this._Activatedroute.snapshot.paramMap.get('id')) {
       //alert(this._Activatedroute.snapshot.paramMap.get('id'));
       let id = this._Activatedroute.snapshot.paramMap.get('id');
       this.myForm.get('id').setValue(id);
@@ -86,6 +75,7 @@ export class CategoryComponent implements OnInit {
         this.formTitle = 'เพิ่มข้อมูล';
       }
     }
+
   }
 
   get f() {
@@ -143,21 +133,26 @@ export class CategoryComponent implements OnInit {
   newForm() {
     console.clear();
 
-    this.myForm.get('lang').setValue('');
-    this.myForm.get('categoryDesc').setValue('');
-    this.myForm.get('imageName').setValue('');
+    this.myForm.get('id').setValue('');
+this.myForm.get('categorycode').setValue('');
+this.myForm.get('lang').setValue('');
+this.myForm.get('categoryDesc').setValue('');
+this.myForm.get('imageName').setValue('');
+this.myForm.get('grandParentCode').setValue('');
+this.myForm.get('departmentID').setValue('');
+this.myForm.get('TotalProduct').setValue('');
+
+
   }
 
   getByID(id) {
     console.clear();
-    alert(id);
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
       //this.categoryModel = response;
       console.log('res', response);
 
-      this.myForm.get('lang').setValue(response.lang);
-      this.myForm.get('categoryDesc').setValue(response.categoryDesc);
-      this.myForm.get('imageName').setValue(response.imageName);
+      this.myForm.get('id').setValue(response.id);this.myForm.get('categorycode').setValue(response.categorycode);this.myForm.get('lang').setValue(response.lang);this.myForm.get('categoryDesc').setValue(response.categoryDesc);this.myForm.get('imageName').setValue(response.imageName);this.myForm.get('grandParentCode').setValue(response.grandParentCode);this.myForm.get('departmentID').setValue(response.departmentID);this.myForm.get('TotalProduct').setValue(response.TotalProduct);
+
 
       //this.myForm.get('Mode').setValue('patch');
     });
