@@ -6,12 +6,14 @@
       <div class="row flex-between-center">
         <div class="col-md-4 d-flex align-items-center pe-0">
           <h5 class="mb-0 text-nowrap py-2 py-xl-0">
-            ตาราง {{ varModelTable.Caption }} หน้าที่ {{ currentPageNo }} Next =
-            {{ nextPageNo }}
+            ตาราง {{ varModelTable.Caption }}
           </h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
-          <h6>รายการ : {{ ListRecnoCaption }}/{{ AllRec }}</h6>
+          <h6 style="font-size:14px">
+            หน้าที่ <span style="color:blue">{{ currentPageNo }} </span> รายการ
+            : {{ ListRecnoCaption }}/{{ AllRec }}
+          </h6>
         </div>
       </div>
     </div>
@@ -73,7 +75,12 @@
         </table>
 
         <!-- Navigator Section         -->
-        <div style="display:flex">
+        <div style="display:flex;align-items:center;padding:10px">
+          <h6 style="font-size:14px">
+            หน้าที่ <span style="color:blue">{{ currentPageNo }} </span> รายการ
+            : {{ ListRecnoCaption }}/{{ AllRec }}
+          </h6>
+
           <nav
             aria-label="Page navigation example"
             style="margin-top:5px;margin-left:auto;margin-right:10px"
@@ -89,7 +96,12 @@
                 >
               </li> -->
               <li class="page-item">
-                <a class="page-link" href="#">Previous</a>
+                <a
+                  class="page-link"
+                  routerLink="/{{ tableAPI }}/{{ nextPageNo }}"
+                  (click)="fetchData(0)"
+                  >Previous</a
+                >
               </li>
               <li class="page-item">
                 <a
@@ -114,7 +126,7 @@
                 <a
                   class="page-link"
                   routerLink="/{{ tableAPI }}/{{ nextPageNo }}"
-                  (click)="fetchData({{nextPageNo}})"
+                  (click)="fetchData(-1)"
                   >Next</a
                 >
               </li>

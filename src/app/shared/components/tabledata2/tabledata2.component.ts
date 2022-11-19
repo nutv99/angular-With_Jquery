@@ -87,6 +87,13 @@ export class Tabledata2Component implements OnInit {
   }
 
   fetchData(wantpageno) {
+    if (wantpageno < 0) {
+      wantpageno = this.currentPageNo + 1;
+    }
+
+    if (wantpageno === 0) {
+      wantpageno = this.currentPageNo - 1;
+    }
     this.results = '';
     //pageno = this.varModelTable.pageno;
     this.myurl =
@@ -94,9 +101,6 @@ export class Tabledata2Component implements OnInit {
       this.varModelTable.apiTable +
       '/ByFormCodeAndPageNo/' +
       wantpageno;
-
-    alert(wantpageno);
-    this.nextPageNo = parseInt(wantpageno) + 1;
 
     // this.myurl =
     // environment.apiUrl + this.varModelTable.apiTable +'/ByPageNo/' +pageno;
