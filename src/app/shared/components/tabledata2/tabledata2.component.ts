@@ -42,6 +42,7 @@ export class Tabledata2Component implements OnInit {
 
   currentPageNo: number = 1;
   totalPage: number = 0;
+  tableCaption: string = '';
 
   apiName: string = '';
   myurl: string = '';
@@ -113,6 +114,7 @@ export class Tabledata2Component implements OnInit {
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
+      this.tableCaption = data.caption;
       this.ListRecnoCaption = data.startRec + '-' + data.EndRec;
       this.totalPage = data.totalPage;
       this.results = data.data;

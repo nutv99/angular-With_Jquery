@@ -30,9 +30,6 @@ export interface modelTable {
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css'],
 })
-
-
-
 export class CategoryComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -43,8 +40,7 @@ export class CategoryComponent implements OnInit {
   };
   // Initial Form Model VAR & Value
   categoryModel: full_categoryModel = {
-    id: 2
-
+    id: 2,
   };
 
   id: number = 1;
@@ -56,26 +52,35 @@ export class CategoryComponent implements OnInit {
   stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: APIService,private _Activatedroute: ActivatedRoute) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: APIService,
+    private _Activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.myForm = this.fb.group({
+      id: ['', Validators.required],
+      categorycode: ['', Validators.required],
+      lang: ['', Validators.required],
+      categoryDesc: ['', Validators.required],
+      imageName: ['', Validators.required],
+      grandParentCode: ['', Validators.required],
+      departmentID: ['', Validators.required],
+      TotalProduct: ['', Validators.required],
+    });
 
-	
-this.myForm = this.fb.group({
-id : ['',Validators.required],categorycode : ['',Validators.required],lang : ['',Validators.required],categoryDesc : ['',Validators.required],imageName : ['',Validators.required],grandParentCode : ['',Validators.required],departmentID : ['',Validators.required],TotalProduct : ['',Validators.required]});
-
-	if (this._Activatedroute.snapshot.paramMap.get('id')) {
+    if (this._Activatedroute.snapshot.paramMap.get('id')) {
       //alert(this._Activatedroute.snapshot.paramMap.get('id'));
       let id = this._Activatedroute.snapshot.paramMap.get('id');
       this.myForm.get('id').setValue(id);
       if (id != 'new') {
-        this.formTitle = 'แก้ไขข้อมูล';
+        this.formTitle = 'แก้ไขข้อมูล -' + this.varmodelTable.Caption;
         this.getByID(id);
       } else {
-        this.formTitle = 'เพิ่มข้อมูล';
+        this.formTitle = 'เพิ่มข้อมูล ::' + this.varmodelTable.Caption;
       }
     }
-
   }
 
   get f() {
@@ -134,15 +139,13 @@ id : ['',Validators.required],categorycode : ['',Validators.required],lang : [''
     console.clear();
 
     this.myForm.get('id').setValue('');
-this.myForm.get('categorycode').setValue('');
-this.myForm.get('lang').setValue('');
-this.myForm.get('categoryDesc').setValue('');
-this.myForm.get('imageName').setValue('');
-this.myForm.get('grandParentCode').setValue('');
-this.myForm.get('departmentID').setValue('');
-this.myForm.get('TotalProduct').setValue('');
-
-
+    this.myForm.get('categorycode').setValue('');
+    this.myForm.get('lang').setValue('');
+    this.myForm.get('categoryDesc').setValue('');
+    this.myForm.get('imageName').setValue('');
+    this.myForm.get('grandParentCode').setValue('');
+    this.myForm.get('departmentID').setValue('');
+    this.myForm.get('TotalProduct').setValue('');
   }
 
   getByID(id) {
@@ -151,8 +154,14 @@ this.myForm.get('TotalProduct').setValue('');
       //this.categoryModel = response;
       console.log('res', response);
 
-      this.myForm.get('id').setValue(response.id);this.myForm.get('categorycode').setValue(response.categorycode);this.myForm.get('lang').setValue(response.lang);this.myForm.get('categoryDesc').setValue(response.categoryDesc);this.myForm.get('imageName').setValue(response.imageName);this.myForm.get('grandParentCode').setValue(response.grandParentCode);this.myForm.get('departmentID').setValue(response.departmentID);this.myForm.get('TotalProduct').setValue(response.TotalProduct);
-
+      this.myForm.get('id').setValue(response.id);
+      this.myForm.get('categorycode').setValue(response.categorycode);
+      this.myForm.get('lang').setValue(response.lang);
+      this.myForm.get('categoryDesc').setValue(response.categoryDesc);
+      this.myForm.get('imageName').setValue(response.imageName);
+      this.myForm.get('grandParentCode').setValue(response.grandParentCode);
+      this.myForm.get('departmentID').setValue(response.departmentID);
+      this.myForm.get('TotalProduct').setValue(response.TotalProduct);
 
       //this.myForm.get('Mode').setValue('patch');
     });
