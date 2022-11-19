@@ -10,7 +10,7 @@
           </h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
-          <h6>รายการ : {{ results.length }}/{{ AllRec }}</h6>
+          <h6>รายการ : {{ results.startRec }} /{{ AllRec }}</h6>
         </div>
       </div>
     </div>
@@ -31,9 +31,11 @@
               >
                 {{ result }}
               </td>
+              <td>{{ result[0] }}</td>
               <td>{{ result[1] }}</td>
-              <td>{{ result[3] }}</td>
               <td>{{ result[2] }}</td>
+              <td>{{ result[3] }}</td>
+
               <td>
                 <img
                   src="{{ result[6] }}"
@@ -62,7 +64,7 @@
               </td>
             </tr>
             <tr *ngIf="totalrow === 0">
-              <td colspan="5">
+              <td colspan="15">
                 <div class="alert alert-danger">resultsloyee not found</div>
               </td>
             </tr>

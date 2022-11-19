@@ -70,9 +70,9 @@ export class Tabledata2Component implements OnInit {
     this.results = '';
     //pageno = this.varModelTable.pageno;
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
+      'https://lovetoshopmall.com/swagger/mall/th/' +
       this.varModelTable.apiTable +
-      '/ByPageNo/' +
+      '/ByFormCodeAndPageNo/' +
       pageno;
 
     // this.myurl =
