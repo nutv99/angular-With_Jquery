@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Input,
+  Output,
+  AfterViewInit,
+} from '@angular/core';
 import { EmpService } from '../../../_services/emp.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -32,6 +39,8 @@ export class Tabledata2Component implements OnInit {
   pageid: string = '';
   pageno: string = '';
 
+  currentPageNo: number = 1;
+
   apiName: string = '';
   myurl: string = '';
   AllRec: number = 0;
@@ -39,6 +48,8 @@ export class Tabledata2Component implements OnInit {
   results: any;
   totalrow: number = 0;
   headerTable = ['ชื่อ', 'นามสกุล', 'อีเมล์', 'เบอร์โทร', ''];
+
+  nextPageNo: number = 0;
 
   Pagination = [2, 3, 4];
   faEdit = faEdit;
@@ -60,22 +71,32 @@ export class Tabledata2Component implements OnInit {
     this.headerTable = this.varModelTable.headerColTable;
     // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
-    if (this._Activatedroute.snapshot.paramMap.get('pageid')) {
+    if (this._Activatedroute.snapshot.paramMap.get('pageno')) {
       this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
       this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     }
+
     this.fetchData(this.pageno);
+    this.currentPageNo = parseInt(this.pageno);
   }
 
-  fetchData(pageno) {
+  ngAfterViewInit() {
+    this.nextPageNo = parseInt(this.pageno) + 1;
+    //  alert(this.nextPageNo);
+  }
+
+  fetchData(wantpageno) {
     this.results = '';
     //pageno = this.varModelTable.pageno;
     this.myurl =
       'https://lovetoshopmall.com/swagger/mall/th/' +
       this.varModelTable.apiTable +
       '/ByFormCodeAndPageNo/' +
-      pageno;
+      wantpageno;
+
+    alert(wantpageno);
+    this.nextPageNo = parseInt(wantpageno) + 1;
 
     // this.myurl =
     // environment.apiUrl + this.varModelTable.apiTable +'/ByPageNo/' +pageno;
@@ -88,6 +109,8 @@ export class Tabledata2Component implements OnInit {
       this.headerTable = data.HeadCol;
       console.table(data.HeadCol);
       this.AllRec = data.totalRec;
+      this.currentPageNo = parseInt(wantpageno);
+      // this.nextPageNo = parseInt(wantpageno) + 1;
     });
   }
 
