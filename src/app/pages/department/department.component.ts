@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
+
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
@@ -7,7 +8,6 @@ import { DepartmentModel } from '../../_models/department';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { CustomvalidationService } from '../services/customvalidation.service';
 import { APIService } from '../../_services/api.service';
-import { ActivatedRoute } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -31,7 +31,6 @@ export interface modelTable {
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
 })
-
 export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {

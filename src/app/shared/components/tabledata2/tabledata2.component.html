@@ -11,8 +11,11 @@
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
           <h6 style="font-size:14px">
-            หน้าที่ <span style="color:blue">{{ currentPageNo }} </span> รายการ
-            : {{ ListRecnoCaption }}/{{ AllRec }}
+            หน้าที่
+            <span style="color:blue"
+              >{{ currentPageNo }}/ {{ totalPage }}
+            </span>
+            รายการ : {{ ListRecnoCaption }}/{{ AllRec }}
           </h6>
         </div>
       </div>
@@ -77,8 +80,9 @@
         <!-- Navigator Section         -->
         <div style="display:flex;align-items:center;padding:10px">
           <h6 style="font-size:14px">
-            หน้าที่ <span style="color:blue">{{ currentPageNo }} </span> รายการ
-            : {{ ListRecnoCaption }}/{{ AllRec }}
+            หน้าที่
+            <span style="color:blue">{{ currentPageNo }}/{{ totalPage }} </span>
+            รายการ : {{ ListRecnoCaption }}/{{ AllRec }}
           </h6>
 
           <nav

@@ -38,8 +38,10 @@ export class Tabledata2Component implements OnInit {
 
   pageid: string = '';
   pageno: string = '';
+  formCode = 'category';
 
   currentPageNo: number = 1;
+  totalPage: number = 0;
 
   apiName: string = '';
   myurl: string = '';
@@ -71,6 +73,7 @@ export class Tabledata2Component implements OnInit {
     this.headerTable = this.varModelTable.headerColTable;
     // this.headerTable = this.varModelTable.headerTable;
     this.tableAPI = this.varModelTable.apiTable;
+    //alert(this.tableAPI);
     if (this._Activatedroute.snapshot.paramMap.get('pageno')) {
       this.pageno = this._Activatedroute.snapshot.paramMap.get('pageno');
     } else {
@@ -100,6 +103,8 @@ export class Tabledata2Component implements OnInit {
       'https://lovetoshopmall.com/swagger/mall/th/' +
       this.varModelTable.apiTable +
       '/ByFormCodeAndPageNo/' +
+      this.formCode +
+      '/' +
       wantpageno;
 
     // this.myurl =
@@ -109,6 +114,7 @@ export class Tabledata2Component implements OnInit {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
       this.ListRecnoCaption = data.startRec + '-' + data.EndRec;
+      this.totalPage = data.totalPage;
       this.results = data.data;
       this.headerTable = data.HeadCol;
       console.table(data.HeadCol);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute, RouterModule, Routes } from '@angular/router';
 import { Tabledata2Component } from '../../shared/components/tabledata2/tabledata2.component';
 import { SearchselectComponent } from '../../shared/components/searchselect/searchselect.component';
 
@@ -52,7 +52,11 @@ export class CategoryComponent implements OnInit {
   stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: APIService) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: APIService,
+    private _Activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     /*this.myForm = this.fb.group({
@@ -65,10 +69,23 @@ export class CategoryComponent implements OnInit {
 	*/
 
     this.myForm = this.fb.group({
+      id: ['', Validators.required],
       lang: ['', Validators.required],
       categoryDesc: ['', Validators.required],
       imageName: ['', Validators.required],
     });
+
+    if (this._Activatedroute.snapshot.paramMap.get('id')) {
+      //alert(this._Activatedroute.snapshot.paramMap.get('id'));
+      let id = this._Activatedroute.snapshot.paramMap.get('id');
+      this.myForm.get('id').setValue(id);
+      if (id != 'new') {
+        this.formTitle = 'แก้ไขข้อมูล';
+        this.getByID(id);
+      } else {
+        this.formTitle = 'เพิ่มข้อมูล';
+      }
+    }
   }
 
   get f() {
@@ -133,6 +150,7 @@ export class CategoryComponent implements OnInit {
 
   getByID(id) {
     console.clear();
+    alert(id);
     this.apiService.getById(this.ModelName, id).subscribe((response: any) => {
       //this.categoryModel = response;
       console.log('res', response);
