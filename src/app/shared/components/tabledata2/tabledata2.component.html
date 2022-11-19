@@ -10,7 +10,7 @@
           </h5>
         </div>
         <div class="col-md-8 ms-auto text-end ps-0">
-          <h6>รายการ : {{ results.startRec }} /{{ AllRec }}</h6>
+          <h6>รายการ : {{ ListRecnoCaption }}/{{ AllRec }}</h6>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
                 </button>
               </td>
             </tr>
-            <tr *ngIf="totalrow === 0">
+            <tr *ngIf="AllRec === 0">
               <td colspan="15">
                 <div class="alert alert-danger">resultsloyee not found</div>
               </td>

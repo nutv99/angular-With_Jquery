@@ -45,6 +45,8 @@ export class Tabledata2Component implements OnInit {
   faDeleteLeft = faDeleteLeft;
   faChevronCircleRight = faChevronCircleRight;
 
+  ListRecnoCaption = '';
+
   employees!: Emp[];
 
   constructor(
@@ -81,6 +83,7 @@ export class Tabledata2Component implements OnInit {
     this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table(data.data);
+      this.ListRecnoCaption = data.startRec + '-' + data.EndRec;
       this.results = data.data;
       this.headerTable = data.HeadCol;
       console.table(data.HeadCol);
