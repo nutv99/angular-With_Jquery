@@ -21,20 +21,24 @@ export class OutSelect implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    if (this.dataInit === '') {
-      this.InitDataSelect();
-    } else {
-      this.results = this.dataInit;
-    }
+    // if (this.dataInit === '') {
+    //   this.InitDataSelect();
+    // } else {
+    //   this.results = this.dataInit;
+    // }
+    this.InitDataSelect();
   }
 
   async InitDataSelect() {
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/' + this.apiPathInput;
+    // this.myurl =
+    //   'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/All/1';
 
     await this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
-      console.table('Data For Select List', data);
+      console.table('Data9999 For Select List', data);
+      alert(data);
       this.dataInit = data;
       this.results = this.dataInit;
       this.myListChange.emit(this.sData);

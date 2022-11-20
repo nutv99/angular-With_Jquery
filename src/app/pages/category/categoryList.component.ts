@@ -58,6 +58,12 @@ export class categoryListComponent implements OnInit, OnChanges {
     this.varmodelTable.pageno = parseInt(this.pageid);
   }
 
+  BShowNumBerChange(e: any) {
+    //alert(e);
+    console.log('On App Component  99999', JSON.stringify(e));
+    //this.orderno = e;
+  }
+
   OnDeletecategory(e: any) {
     alert(e);
     /*let id = e;
