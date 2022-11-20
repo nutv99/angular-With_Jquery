@@ -1,5 +1,20 @@
 <h2>Category</h2>
-<button [routerLink]="['/departmentForm/new']">เพิ่มข้อมูล</button>
+<div style="height:35px"></div>
+<div style="display:flex;margin-left:10px;margin-bottom:20px">
+  <button
+    [routerLink]="['/departmentForm/new']"
+    style="background:#63b1b1;color:white;border:none;padding:5px;padding-left:10px;padding-right:10px"
+  >
+    เพิ่มข้อมูล
+  </button>
+
+  <button
+    [routerLink]="['/departmentForm/new']"
+    style="margin-left:10px;background:#0000ff;color:white;border:none;padding:5px;padding-left:10px;padding-right:10px"
+  >
+    Import
+  </button>
+</div>
 <app-tabledata2
   [varModelTable]="varmodelTable"
   (MYIDOutDelete)="OnDeletecategory($event)"
