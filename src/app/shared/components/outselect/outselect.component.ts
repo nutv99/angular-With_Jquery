@@ -40,7 +40,7 @@ export class OutSelect implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const veganValue = changes['dataInit'];
-    alert('Change' + veganValue.firstChange);
+    console.log('Change ', changes);
     //veganValue.isFirstChange
     if (veganValue.firstChange === false) {
       this.results = veganValue.currentValue;
@@ -66,7 +66,7 @@ export class OutSelect implements OnInit, OnChanges {
       //alert(data);
       this.dataInit = data;
       this.results = this.dataInit;
-      this.myListChange.emit(this.sData);
+      //this.myListChange.emit(this.sData);
       //this.AllRec = data.totalRec;
       // this.results = data;
     });
@@ -84,7 +84,7 @@ export class OutSelect implements OnInit, OnChanges {
       this.ModelName +
       '/WithChild/' +
       sParentID.target.value;
-    alert(this.myurl);
+    //alert(this.myurl);
 
     await this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
