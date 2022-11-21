@@ -1,4 +1,12 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Input,
+  Output,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -6,7 +14,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './outselect.component.html',
   styleUrls: ['./outselect.component.css'],
 })
-export class OutSelect implements OnInit {
+export class OutSelect implements OnInit, OnChanges {
   @Input() apiPathInput: string;
   @Input() ModelName: string;
   @Input() HaveChild: string;
@@ -28,6 +36,13 @@ export class OutSelect implements OnInit {
       this.results = this.dataInit;
     }
     //this.InitDataSelect();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const veganValue = changes['dataInit'];
+    alert(veganValue.currentValue);
+    //this.results = this.dataInit;
+    this.results = veganValue.currentValue;
   }
 
   async InitDataSelect() {
