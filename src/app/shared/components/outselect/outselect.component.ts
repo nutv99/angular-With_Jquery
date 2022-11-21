@@ -22,12 +22,12 @@ export class OutSelect implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // if (this.dataInit === '') {
-    //   this.InitDataSelect();
-    // } else {
-    //   this.results = this.dataInit;
-    // }
-    this.InitDataSelect();
+    if (this.dataInit === '') {
+      this.InitDataSelect();
+    } else {
+      this.results = this.dataInit;
+    }
+    //this.InitDataSelect();
   }
 
   async InitDataSelect() {

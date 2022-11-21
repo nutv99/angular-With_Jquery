@@ -49,7 +49,9 @@
           <app-out-select
             [apiPathInput]="'th/department/All/1'"
             [ModelName]="'department'"
-            [HaveChild] = "'y'"
+            [dataInit]="''"
+            [HaveChild]="'y'"
+            (myListChange)="setChildData($event)"
           ></app-out-select>
         </div>
       </div>
@@ -61,8 +63,9 @@
         <div class="dropdown">
           <app-out-select
             [apiPathInput]="'th/category/All/1'"
+            [dataInit]="dataInit"
             [ModelName]="'category'"
-            [HaveChild] = "'n'"
+            [HaveChild]="'n'"
           ></app-out-select>
         </div>
       </div>

@@ -30,9 +30,6 @@ export interface modelTable {
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css'],
 })
-
-
-
 export class DepartmentComponent implements OnInit {
   formModal: any;
   varmodelTable: modelTable = {
@@ -43,9 +40,18 @@ export class DepartmentComponent implements OnInit {
   };
   // Initial Form Model VAR & Value
   departmentModel: full_departmentModel = {
-    id: 2
-
+    id: 2,
   };
+
+  dataInit = [
+    {
+      ID: 1,
+      '0': 1,
+      categoryDesc:
+        'นาฬิกาผู้หญิง                                                                                       ',
+      '1': 'นาฬิกาผู้หญิง                                                                                       ',
+    },
+  ];
 
   id: number = 1;
   ModelName: string = 'department';
@@ -56,15 +62,21 @@ export class DepartmentComponent implements OnInit {
   stageForm: boolean = true;
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: APIService,private _Activatedroute: ActivatedRoute) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: APIService,
+    private _Activatedroute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.myForm = this.fb.group({
+      id: ['', Validators.required],
+      departmentCode: ['', Validators.required],
+      departmentDesc: ['', Validators.required],
+      imageName: ['', Validators.required],
+    });
 
-	
-this.myForm = this.fb.group({
-id : ['',Validators.required],departmentCode : ['',Validators.required],departmentDesc : ['',Validators.required],imageName : ['',Validators.required]});
-
-	if (this._Activatedroute.snapshot.paramMap.get('id')) {
+    if (this._Activatedroute.snapshot.paramMap.get('id')) {
       //alert(this._Activatedroute.snapshot.paramMap.get('id'));
       let id = this._Activatedroute.snapshot.paramMap.get('id');
       this.myForm.get('id').setValue(id);
@@ -75,7 +87,6 @@ id : ['',Validators.required],departmentCode : ['',Validators.required],departme
         this.formTitle = 'เพิ่มข้อมูล';
       }
     }
-
   }
 
   get f() {
@@ -134,11 +145,9 @@ id : ['',Validators.required],departmentCode : ['',Validators.required],departme
     console.clear();
 
     this.myForm.get('id').setValue('');
-this.myForm.get('departmentCode').setValue('');
-this.myForm.get('departmentDesc').setValue('');
-this.myForm.get('imageName').setValue('');
-
-
+    this.myForm.get('departmentCode').setValue('');
+    this.myForm.get('departmentDesc').setValue('');
+    this.myForm.get('imageName').setValue('');
   }
 
   getByID(id) {
@@ -147,8 +156,10 @@ this.myForm.get('imageName').setValue('');
       //this.departmentModel = response;
       console.log('res', response);
 
-      this.myForm.get('id').setValue(response.id);this.myForm.get('departmentCode').setValue(response.departmentCode);this.myForm.get('departmentDesc').setValue(response.departmentDesc);this.myForm.get('imageName').setValue(response.imageName);
-
+      this.myForm.get('id').setValue(response.id);
+      this.myForm.get('departmentCode').setValue(response.departmentCode);
+      this.myForm.get('departmentDesc').setValue(response.departmentDesc);
+      this.myForm.get('imageName').setValue(response.imageName);
 
       //this.myForm.get('Mode').setValue('patch');
     });
@@ -207,6 +218,10 @@ this.myForm.get('imageName').setValue('');
 
   alertWithSuccess() {
     Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
+  }
+
+  setChildData(e: any) {
+    alert(e.target.value);
   }
 
   // openFormModal() {
