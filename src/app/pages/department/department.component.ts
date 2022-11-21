@@ -221,6 +221,7 @@ export class DepartmentComponent implements OnInit {
   }
 
   setChildData(e: any) {
+    alert('AAA Change Trigger')
     //alert(e.target.value);
     this.dataInit = [
       {
@@ -228,7 +229,7 @@ export class DepartmentComponent implements OnInit {
         '0': 1,
         categoryDesc:
           '99999นาฬิกาผู้หญิง                                                                                       ',
-        '1': '8888นาฬิกาผู้หญิง                                                                                       ',
+        '1': '7777นาฬิกาผู้หญิง                                                                                       ',
       },
     ];
   }
