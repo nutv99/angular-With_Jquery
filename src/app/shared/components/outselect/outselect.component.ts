@@ -42,7 +42,7 @@ export class OutSelect implements OnInit {
     await this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
       console.table('Data9999 For Select List', data);
-      alert(data);
+      //alert(data);
       this.dataInit = data;
       this.results = this.dataInit;
       this.myListChange.emit(this.sData);

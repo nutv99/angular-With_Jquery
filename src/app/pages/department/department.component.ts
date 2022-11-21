@@ -221,7 +221,16 @@ export class DepartmentComponent implements OnInit {
   }
 
   setChildData(e: any) {
-    alert(e.target.value);
+    //alert(e.target.value);
+    this.dataInit = [
+      {
+        ID: 91,
+        '0': 1,
+        categoryDesc:
+          '99999นาฬิกาผู้หญิง                                                                                       ',
+        '1': 'นาฬิกาผู้หญิง                                                                                       ',
+      },
+    ];
   }
 
   // openFormModal() {
