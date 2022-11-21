@@ -224,11 +224,11 @@ export class DepartmentComponent implements OnInit {
     //alert(e.target.value);
     this.dataInit = [
       {
-        ID: 91,
+        ID: 991,
         '0': 1,
         categoryDesc:
           '99999นาฬิกาผู้หญิง                                                                                       ',
-        '1': 'นาฬิกาผู้หญิง                                                                                       ',
+        '1': '8888นาฬิกาผู้หญิง                                                                                       ',
       },
     ];
   }

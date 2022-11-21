@@ -40,7 +40,8 @@ export class OutSelect implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const veganValue = changes['dataInit'];
-    alert(veganValue.currentValue);
+    //alert(veganValue.currentValue);
+    console.log(veganValue.firstChange);
     //this.results = this.dataInit;
     this.results = veganValue.currentValue;
   }
@@ -85,7 +86,6 @@ export class OutSelect implements OnInit, OnChanges {
       console.table('Data For Select List OutData', data);
       this.sData = data;
       this.myListChange.emit(this.sData);
-      alert('Child Work');
       //this.AllRec = data.totalRec;
       // this.results = data;
     });
