@@ -9,6 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class OutSelect implements OnInit {
   @Input() apiPathInput: string;
   @Input() ModelName: string;
+  @Input() HaveChild: string;
+
   @Input() dataInit: any;
   @Input() Title: string;
 
@@ -16,7 +18,6 @@ export class OutSelect implements OnInit {
   sData: any = [{}];
   @Input() results: any = [{ ID: '2', departmentDesc: 'CCCCCCC' }];
   myurl: string = '';
-  apiPath = '/th/department/All/1';
 
   constructor(private http: HttpClient) {}
 
@@ -30,8 +31,11 @@ export class OutSelect implements OnInit {
   }
 
   async InitDataSelect() {
+    let apiPathA = 'th/' + this.ModelName + '/All/1';
+
+    //alert(apiPathA);
     this.myurl =
-      'https://lovetoshopmall.com/swagger/marlinshopWork2/' + this.apiPathInput;
+      'https://lovetoshopmall.com/swagger/marlinshopWork2/' + apiPathA;
     // this.myurl =
     //   'https://lovetoshopmall.com/swagger/marlinshopWork2/th/department/All/1';
 
@@ -51,7 +55,9 @@ export class OutSelect implements OnInit {
     //this.results = '';
     // this.myurl =
     //   'https://lovetoshopmall.com/swagger/marlinshopWork2/' + this.apiPathInput;
-
+    if (this.HaveChild !== 'y') {
+      return;
+    }
     this.myurl =
       'https://lovetoshopmall.com/swagger/marlinshopWork2/th/' +
       this.ModelName +
@@ -64,6 +70,7 @@ export class OutSelect implements OnInit {
       console.table('Data For Select List OutData', data);
       this.sData = data;
       this.myListChange.emit(this.sData);
+      alert('Child Work');
       //this.AllRec = data.totalRec;
       // this.results = data;
     });
