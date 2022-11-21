@@ -23,8 +23,6 @@ import { environment } from '../../../environment';
   apiPath : string ,
   apiPathChild : string ,
   apiPathChildren : string ,
-
-
 */
 export class SearchselectComponent implements OnInit {
   @ViewChild('myNameElem') myNameElem: ElementRef;

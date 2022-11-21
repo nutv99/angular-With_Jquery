@@ -16,7 +16,7 @@
   </button>
 </div>
 
-<h3>เลือกแผนกสินค้า </h3> 
+<h3>เลือกแผนกสินค้า....</h3>
 
 <!-- <div class="dropdown">
   <app-searchselect
@@ -25,10 +25,16 @@
   ></app-searchselect>
 </div> -->
 
-<app-out-select 
- [apiPathInput]="'th/department/All/1'"  
- (myListChange)="BShowNumBerChange($event)"
+<app-out-select
+  [apiPathInput]="'th/department/All/1'"
+  (myListChange)="BShowNumBerChange($event)"
 ></app-out-select>
+<h2>Category Child</h2>
+<app-out-select
+  [apiPathInput]="'th/department/All/1'"
+  (myListChange)="BShowNumBerChange($event)"
+></app-out-select>
+
 <app-tabledata2
   [varModelTable]="varmodelTable"
   (MYIDOutDelete)="OnDeletecategory($event)"
