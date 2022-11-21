@@ -112,4 +112,27 @@ BShowNumBerChange($event)
     this.orderno = e;
   }
 
+Case การใช้   
+ 1. ต้องการ Child ให้กำหนด Parameter -> ModelName = ชื่อ Table
+            [dataInit]="''"
+            [HaveChild]="'n'"
+            (myListChange)="setChildData($event)"
+     หรือ 
+      <app-out-select
+            [apiPathInput]="'th/department/All/1'"
+            [ModelName]="'department'"
+            [dataInit]="''"
+            [HaveChild]="'y'"
+            (myListChange)="setChildData($event)" // ไปสร้าง function setChildData ไว้ใน Parent Component
+          >
+      </app-out-select>       
+ 2. ไม่ต้องการ Child ให้กำหนด Parameter -> ModelName
+      <app-out-select
+            [apiPathInput]="'th/category/All/1'"
+            [dataInit]="dataInit"
+            [ModelName]="'category'"
+            [HaveChild]="'n'"
+          >
+      </app-out-select>
+
 */
