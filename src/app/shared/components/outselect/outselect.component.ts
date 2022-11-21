@@ -79,7 +79,7 @@ export class OutSelect implements OnInit, OnChanges {
       this.ModelName +
       '/WithChild/' +
       sParentID.target.value;
-    // alert(this.myurl);
+     alert(this.myurl);
 
     await this.http.get<any>(this.myurl).subscribe((data) => {
       // อ่านค่า result จาก JSON response ที่ส่งออกมา
