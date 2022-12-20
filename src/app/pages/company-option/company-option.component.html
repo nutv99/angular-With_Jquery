@@ -82,7 +82,7 @@
           role="switch"
           id="uxRestrictAccessToShopLabel"
           formControName="uxRestrictAccessToShopLabel"
-          checked
+          (change)="setChecked('uxRestrictAccessToShopLabel')"
           value='y'
         />
         <label for="exampleFormControlInput1" class="form-label" style="">
@@ -104,6 +104,7 @@
           type="checkbox"
           role="switch"
           id="flexSwitchCheckuxPriceRequireLoginLabel"
+          (change)="setChecked('uxPriceRequireLoginLabel')"
         />
         <label for="exampleFormControlInput1" class="form-label" style="">
           แสดงราคาเมื่อเข้าสู่ระบบ
@@ -1316,3 +1317,5 @@
     เพิ่มข้อมูล
   </button>
 </div>
+
+

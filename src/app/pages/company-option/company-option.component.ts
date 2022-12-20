@@ -146,6 +146,16 @@ export class Company_optionComponent implements OnInit {
     }
   }
 
+  setChecked(fname) {
+
+    if (this.myForm.get(fname).value === 'y') {
+       this.myForm.get(fname).setValue('n')
+    } else {
+      this.myForm.get(fname).setValue('y')
+    }
+
+  }
+
   get f() {
     return this.myForm.controls;
   }
