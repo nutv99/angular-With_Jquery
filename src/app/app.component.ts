@@ -33,7 +33,7 @@ export class AppComponent {
           name: 'Deparment',
           linkTo: '/departmentList/1',
           caption: 'แผนกสินค้า',
-        },        
+        },
         {
           name: 'category',
           linkTo: 'category/1',
@@ -48,6 +48,11 @@ export class AppComponent {
           name: 'tbldocument',
           linkTo: 'tbldocument/1',
           caption: 'เอกสาร',
+        },
+        {
+          name: 'companysetup',
+          linkTo: 'company',
+          caption: 'ตั้งค่า บริษัท',
         },
       ],
     },
