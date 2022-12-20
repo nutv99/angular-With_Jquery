@@ -29,12 +29,12 @@ import { tttComponent } from './ttt/ttt.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { companyListComponent } from './pages/company/companyList.component';
 
-
-
+import { Company_optionComponent } from './pages/company-option/company-option.component';
+import { company_optionListComponent } from './pages/company-option/company_optionList.component';
 
 //{ path: 'company', component: CompanyComponent },{ path: 'company/:id', component: CompanyComponent },
 // ใส่ใน Declaration
-//CompanyComponent 
+//CompanyComponent
 
 // ใส่ใน Declaration
 
@@ -48,6 +48,8 @@ const appRoutes: Routes = [
   { path: 'tbldocument/:id', component: TableDocumentComponent },
   { path: 'company', component: companyListComponent },
   { path: 'company/:id', component: CompanyComponent },
+  { path: 'company_option', component: company_optionListComponent },
+  { path: 'company_optionForm/:id', component: Company_optionComponent },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
@@ -88,7 +90,9 @@ const appRoutes: Routes = [
     CategoryComponent,
     categoryListComponent,
     CompanyComponent,
-    companyListComponent
+    companyListComponent,
+    Company_optionComponent,
+    company_optionListComponent,
   ],
   bootstrap: [AppComponent],
 })

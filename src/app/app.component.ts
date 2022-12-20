@@ -54,6 +54,11 @@ export class AppComponent {
           linkTo: 'company',
           caption: 'ตั้งค่า บริษัท',
         },
+        {
+          name: 'company_option',
+          linkTo: 'company_option',
+          caption: 'ตั้งค่าทั่วไป',
+        },
       ],
     },
     {
