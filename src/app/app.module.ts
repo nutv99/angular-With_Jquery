@@ -29,6 +29,9 @@ import { tttComponent } from './ttt/ttt.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { companyListComponent } from './pages/company/companyList.component';
 
+
+
+
 //{ path: 'company', component: CompanyComponent },{ path: 'company/:id', component: CompanyComponent },
 // ใส่ใน Declaration
 //CompanyComponent 
@@ -43,7 +46,8 @@ const appRoutes: Routes = [
   { path: 'group/1', component: GroupItemComponent },
   { path: 'tbldocument', component: TableDocumentComponent },
   { path: 'tbldocument/:id', component: TableDocumentComponent },
-  { path: 'company', component: companyListComponent },{ path: 'company/:id', component: CompanyComponent },
+  { path: 'company', component: companyListComponent },
+  { path: 'company/:id', component: CompanyComponent },
 
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
