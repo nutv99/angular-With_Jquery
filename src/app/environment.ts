@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   apiHost: 'https://lovetoshopmall.com/apiservice/tshop/',
-  apiUrl: 'https://lovetoshopmall.com/apiservice/tshop',
+  apiUrl: 'https://lovetoshopmall.com/apiservice/tshop/',
 };
 
 export const apiPath = {
