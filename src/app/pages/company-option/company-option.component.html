@@ -1,5 +1,6 @@
 <h2>company_option</h2>
-
+<!-- <app-searchselect (apiPath)="('department')"></app-searchselect> -->
+<app-out-select (ModelName)="('department')"></app-out-select>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()" style="padding:20px">
   Value: {{ myForm.value | json }}
   <!-- <button (click)="getByID()">Get ByID</button> -->
@@ -83,7 +84,7 @@
           id="uxRestrictAccessToShopLabel"
           formControName="uxRestrictAccessToShopLabel"
           (change)="setChecked('uxRestrictAccessToShopLabel')"
-          value='y'
+          value="y"
         />
         <label for="exampleFormControlInput1" class="form-label" style="">
           จำกัดการเข้าถึงเฉพาะเว็บไซต์
@@ -1317,5 +1318,3 @@
     เพิ่มข้อมูล
   </button>
 </div>
-
-
